@@ -1,0 +1,164 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+body {
+  background-color: #222;
+  font-family: "Chivo Mono", monospace;
+  font-size: 16px;
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.logo {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  cursor: default;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  width: 32px;
+  height: 32px;
+  margin-right: 72px;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+.link-img {
+  width: 32px;
+  height: 32px;
+}
+
+.link:last-child {
+  margin-right: 0;
+}
+
+.link:hover {
+  transform: scale(1.1);
+}
+
+.info {
+  padding-top: 200px;
+  overflow: hidden;
+  display: flex;
+}
+.info-container {
+  cursor: default;
+  white-space: nowrap;
+  display: flex;
+  justify-content: flex-start;
+  animation: text 20s linear infinite;
+}
+.info-text {
+  text-transform: uppercase;
+  font-size: 102px;
+  padding-right: 20px;
+  white-space: nowrap;
+}
+
+@keyframes text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+main {
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=style.css.map */
