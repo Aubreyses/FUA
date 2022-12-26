@@ -42,64 +42,130 @@
 
         <main>
             <div class="menu">
-                <select class="sort" name="sort" id="select">
-                    <option value="header" class="sort-change">Сортувати по:</option>
-                    <option value="date" class="sort-change">Дата</option>
-                    <option value="price" class="sort-change">Ціна</option>
-                    <option value="nosort" class="sort-change">Не сортувати</option>
-                </select>
+                <button class="menu-button active">
+                    <p>Ваші захоплення ▼</p>
+                </button>
 
-                <div class="checkbox">
-                    <p class="checkbox-text">Ваші захопленя ▼</p>
-                </div>
+                <form action="/" class="form-choise active">
+                    <input type="checkbox" class="checkbox" name="musical">
+                    <label for="musical" class="checkbox-text">Музичні фестивалі</label>
+
+                    <input type="checkbox" class="checkbox" name="artistic">
+                    <label for="artistic" class="checkbox-text">Мистецькі фестивалі</label>
+
+                    <input type="checkbox" class="checkbox" name="historical">
+                    <label for="historical" class="checkbox-text">Історичні фестивалі</label>
+
+                    <input type="checkbox" class="checkbox" name="gastronomic">
+                    <label for="gastronomic" class="checkbox-text">Гастрофестивалі</label>
+
+                    <input type="checkbox" class="checkbox" name="films">
+                    <label for="films" class="checkbox-text">Кінофестивалі</label>
+
+                    <input type="checkbox" class="checkbox" name="books">
+                    <label for="books" class="checkbox-text">Літературні фестивалі</label>
+
+                    <button class="checkbox-button"></button>
+                </form>
             </div>
 
             <ul class="festivals">
                 <li class="festival atlas">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">24/06</div>
+                        <div class="festival-place">Київ</div>
+                    </div>
+
+                    <div class="festival-title">Atlas Weekend</div>
+
+                    <div class="festival-icon musical"></div>
                 </li>
                 <li class="festival bandershtat">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">26/02</div>
+                        <div class="festival-place">Тернопіль</div>
+                    </div>
+
+                    <div class="festival-title">Бандерштат</div>
+
+                    <div class="festival-icon musical"></div>
                 </li>
                 <li class="festival bulhakovfest">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">12/09</div>
+                        <div class="festival-place">Київ</div>
+                    </div>
+
+                    <div class="festival-title">BulgakovFest</div>
+
+                    <div class="festival-icon book"></div>
                 </li>
                 <li class="festival woodstock">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">03/05</div>
+                        <div class="festival-place">Рівне</div>
+                    </div>
+
+                    <div class="festival-title">Woodstock</div>
+
+                    <div class="festival-icon musical"></div>
                 </li>
 
                 <li class="festival atlas">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">24/06</div>
+                        <div class="festival-place">Київ</div>
+                    </div>
+
+                    <div class="festival-title">Atlas Weekend</div>
+
+                    <div class="festival-icon musical"></div>
                 </li>
                 <li class="festival bandershtat">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">26/02</div>
+                        <div class="festival-place">Тернопіль</div>
+                    </div>
+
+                    <div class="festival-title">Бандерштат</div>
+
+                    <div class="festival-icon musical"></div>
                 </li>
                 <li class="festival bulhakovfest">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">12/09</div>
+                        <div class="festival-place">Київ</div>
+                    </div>
+
+                    <div class="festival-title">BulgakovFest</div>
+
+                    <div class="festival-icon book"></div>
                 </li>
                 <li class="festival woodstock">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">03/05</div>
+                        <div class="festival-place">Рівне</div>
+                    </div>
+
+                    <div class="festival-title">Woodstock</div>
+
+                    <div class="festival-icon musical"></div>
                 </li>
                 <li class="festival atlas">
-                    <div class="festival-date"></div>
-                    <div class="festival-place"></div>
-                    <div class="festival-title"></div>
+                    <div class="festival-info">
+                        <div class="festival-date">24/06</div>
+                        <div class="festival-place">Київ</div>
+                    </div>
+
+                    <div class="festival-title">Atlas Weekend</div>
+
+                    <div class="festival-icon musical"></div>
+                </li>
+
+                <li class="festival uknown">
+                    <p class="uknown-suptitle">Знаєте крутий фестиваль?</p>
+                    <div class="uknown-add"></div>
+                    <p class="uknown-title">Запропонуйте!</p>
                 </li>
             </ul>
         </main>
