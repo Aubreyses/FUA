@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,300;
@@ -17,61 +16,38 @@
 <body>
     <section class="container">
 
-        <header>
+        <header id="header">
             <div class="logo">FUA</div>
 
             <nav class="nav">
                 <a href="https://t.me/festinua" class="link">
-                    <img class='link-img' src="img/header-nav/telegram.png" alt="">
+                    <img class='link-img' src="assets/img/header-nav/telegram.png" alt="">
                 </a>
 
                 <a href="https://t.me/festinua" class="link">
-                    <img class='link-img' src="img/header-nav/mail.png" alt="">
+                    <img class='link-img' src="assets/img/header-nav/mail.png" alt="">
                 </a>
 
                 <a href="https://t.me/festinua" class="link">
-                    <img class='link-img' src="img/header-nav/instagram.png" alt="">
+                    <img class='link-img' src="assets/img/header-nav/instagram.png" alt="">
                 </a>
             </nav>
 
             <div class="favorite">
-                <img class='favorite-img' src="img/header-nav/heart.png" alt="">
+                <img class='favorite-img' src="assets/img/header-nav/heart.png" alt="">
             </div>
         </header>
 
         <aside class="favorite-modal">
             <header class="favorite-header">
                 <div class="favorite-close">
-                    <img class="close-img" src="img/like-modal/close.png" alt="">
+                    <img class="close-img" src="assets/img/like-modal/close.png" alt="">
                 </div>
                 <div class="favorite-title">вам сподобалося</div>
             </header>
 
             <ul class="favorite-list">
-                <li class="list-empty">ви поки не обрали улюблені фести :(</li>
-                <li class="item-fest">
-                    <div class="item-info">
-                        <div class="item-type musical"></div>
-                        <div class="item-name">Atlas Weekend</div>
-                    </div>
-                    <button class="item-delete"></button>
-                </li>
 
-                <li class="item-fest">
-                    <div class="item-info">
-                        <div class="item-type book"></div>
-                        <div class="item-name">BulhakovFest</div>
-                    </div>
-                    <button class="item-delete"></button>
-                </li>
-
-                <li class="item-fest">
-                    <div class="item-info">
-                        <div class="item-type musical"></div>
-                        <div class="item-name">Woodstock</div>
-                    </div>
-                    <button class="item-delete"></button>
-                </li>
             </ul>
         </aside>
 
@@ -86,7 +62,8 @@
             <div class="menu-wrap">
                 <div class="menu">
                     <button class="menu-button active">
-                        <p>Ваші захоплення ▼</p>
+                        <p>Ваші захоплення</p>
+                        <img class="menu-img" src="assets/img/sort/arr.png" alt="">
                     </button>
 
                     <form action="/" class="form-choise">
@@ -133,7 +110,7 @@
                     <div class="festival-title">Atlas Weekend</div>
 
                     <div class="festival-icon musical"></div>
-                    <div class="festival-like no-like"></div>
+                    <div class="festival-like 0 no-like"></div>
                 </li>
                 <li class="festival 1 bandershtat musical-fest">
                     <div class="festival-info">
@@ -144,9 +121,9 @@
                     <div class="festival-title">Бандерштат</div>
 
                     <div class="festival-icon musical"></div>
-                    <div class="festival-like no-like"></div>
+                    <div class="festival-like 1 no-like"></div>
                 </li>
-                <li class="festival 3 bulhakovfest book-fest">
+                <li class="festival 2 bulhakovfest book-fest">
                     <div class="festival-info">
                         <div class="festival-date">12/09</div>
                         <div class="festival-place">Київ</div>
@@ -155,9 +132,9 @@
                     <div class="festival-title">BulgakovFest</div>
 
                     <div class="festival-icon book"></div>
-                    <div class="festival-like no-like"></div>
+                    <div class="festival-like 3 no-like"></div>
                 </li>
-                <li class="festival 2 woodstock musical-fest">
+                <li class="festival 3 woodstock musical-fest">
                     <div class="festival-info">
                         <div class="festival-date">03/05</div>
                         <div class="festival-place">Рівне</div>
@@ -166,9 +143,53 @@
                     <div class="festival-title">Woodstock</div>
 
                     <div class="festival-icon musical"></div>
-                    <div class="festival-like no-like"></div>
+                    <div class="festival-like 2 no-like"></div>
                 </li>
 
+                <li class="festival 4 art-jazz musical-fest">
+                    <div class="festival-info">
+                        <div class="festival-date">24/06</div>
+                        <div class="festival-place 0">Тернопіль</div>
+                    </div>
+
+                    <div class="festival-title">Art Jazz</div>
+
+                    <div class="festival-icon musical"></div>
+                    <div class="festival-like 4 no-like"></div>
+                </li>
+                <li class="festival 5 docudays films-fest">
+                    <div class="festival-info">
+                        <div class="festival-date">01-07/02</div>
+                        <div class="festival-place 0">Київ</div>
+                    </div>
+
+                    <div class="festival-title">Docudays UA</div>
+
+                    <div class="festival-icon films"></div>
+                    <div class="festival-like 5 no-like"></div>
+                </li>
+                <li class="festival 2 bulhakovfest book-fest">
+                    <div class="festival-info">
+                        <div class="festival-date">12/09</div>
+                        <div class="festival-place">Київ</div>
+                    </div>
+
+                    <div class="festival-title">BulgakovFest</div>
+
+                    <div class="festival-icon book"></div>
+                    <div class="festival-like 3 no-like"></div>
+                </li>
+                <li class="festival 3 woodstock musical-fest">
+                    <div class="festival-info">
+                        <div class="festival-date">03/05</div>
+                        <div class="festival-place">Рівне</div>
+                    </div>
+
+                    <div class="festival-title">Woodstock</div>
+
+                    <div class="festival-icon musical"></div>
+                    <div class="festival-like 2 no-like"></div>
+                </li>
                 <li class="festival 0 atlas musical-fest">
                     <div class="festival-info">
                         <div class="festival-date">24/06</div>
@@ -178,51 +199,7 @@
                     <div class="festival-title">Atlas Weekend</div>
 
                     <div class="festival-icon musical"></div>
-                    <div class="festival-like no-like"></div>
-                </li>
-                <li class="festival 1 bandershtat musical-fest">
-                    <div class="festival-info">
-                        <div class="festival-date">26/02</div>
-                        <div class="festival-place">Тернопіль</div>
-                    </div>
-
-                    <div class="festival-title">Бандерштат</div>
-
-                    <div class="festival-icon musical"></div>
-                    <div class="festival-like no-like"></div>
-                </li>
-                <li class="festival 3 bulhakovfest book-fest">
-                    <div class="festival-info">
-                        <div class="festival-date">12/09</div>
-                        <div class="festival-place">Київ</div>
-                    </div>
-
-                    <div class="festival-title">BulgakovFest</div>
-
-                    <div class="festival-icon book"></div>
-                    <div class="festival-like no-like"></div>
-                </li>
-                <li class="festival 2 woodstock musical-fest">
-                    <div class="festival-info">
-                        <div class="festival-date">03/05</div>
-                        <div class="festival-place">Рівне</div>
-                    </div>
-
-                    <div class="festival-title">Woodstock</div>
-
-                    <div class="festival-icon musical"></div>
-                    <div class="festival-like no-like"></div>
-                </li>
-                <li class="festival 0 atlas musical-fest">
-                    <div class="festival-info">
-                        <div class="festival-date">24/06</div>
-                        <div class="festival-place">Київ</div>
-                    </div>
-
-                    <div class="festival-title">Atlas Weekend</div>
-
-                    <div class="festival-icon musical"></div>
-                    <div class="festival-like no-like"></div>
+                    <div class="festival-like 0 no-like"></div>
                 </li>
 
                 <li class="festival uknown">
@@ -235,7 +212,7 @@
 
         <footer>
             <p class="footer-text">Copyright by <a class="author-link" href="https://www.linkedin.com/in/vladislav-kh/">Aubreys</a></p>
-            <figure class="arrow"><img class="arrow-img" src="img/footer/arrow.png" alt=""></figure>
+            <figure class="arrow"><img class="arrow-img" src="assets/img/footer/arrow.png" alt=""></figure>
         </footer>
     </section>
 
@@ -256,7 +233,21 @@
         </div>
     </section>
 
+    <template id="tmplt">
+        <li class="item-fest">
+            <div class="item-info">
+                <div class="item-type"></div>
+                <div class="item-name"></div>
+            </div>
+            <button class="item-delete"></button>
+        </li>
+    </template>
 
-    <script src="js/app.js"></script>
+    <template id="tmplt-empty">
+        <li class="list-empty">ви поки не обрали улюблені фести :(</li>
+    </template>
+
+
+    <script src="script.js"></script>
 </body>
 </html>

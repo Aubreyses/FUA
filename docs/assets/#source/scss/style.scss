@@ -198,8 +198,6 @@ nav {
     opacity: .4;
 
     margin-bottom: 30px;
-
-    display: none;
 }
 
 .item-fest {
@@ -353,12 +351,24 @@ main {
 
     display: flex;
     align-items: center;
+    text-align: center;
 
     cursor: pointer;
 
     p {
         margin: auto;
     }
+}
+
+.menu-img {
+    width: 16px;
+    height: 16px;
+
+    transition: .2s linear;
+}
+
+.menu-img.active {
+    transform: rotate(180deg);
 }
 
 .form-choise {
@@ -720,6 +730,16 @@ footer {
 
 .woodstock {
     background: url(../img/festivals/woodstock.jpg) center no-repeat;
+    background-size: 110%;
+}
+
+.art-jazz {
+    background: url(../img/festivals/art-jazz.jpg) center no-repeat;
+    background-size: 110%;
+}
+
+.docudays {
+    background: url(../img/festivals/docudays.jpg) center no-repeat;
     background-size: 110%;
 }
 // Fest photo //

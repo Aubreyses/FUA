@@ -220,7 +220,6 @@ nav {
   color: #fff;
   opacity: 0.4;
   margin-bottom: 30px;
-  display: none;
 }
 
 .item-fest {
@@ -341,10 +340,21 @@ main {
   color: #fff;
   display: flex;
   align-items: center;
+  text-align: center;
   cursor: pointer;
 }
 .menu-button p {
   margin: auto;
+}
+
+.menu-img {
+  width: 16px;
+  height: 16px;
+  transition: 0.2s linear;
+}
+
+.menu-img.active {
+  transform: rotate(180deg);
 }
 
 .form-choise {
@@ -628,6 +638,16 @@ footer {
 .musical {
   background: url(../img/interests-icon/musical.png);
   background-size: 100%;
+}
+
+.art-jazz {
+  background: url(../img/festivals/art-jazz.jpg) center no-repeat;
+  background-size: 110%;
+}
+
+.docudays {
+  background: url(../img/festivals/docudays.jpg) center no-repeat;
+  background-size: 110%;
 }
 
 .art {
