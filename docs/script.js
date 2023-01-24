@@ -176,6 +176,70 @@ const eventsDatabase = () => {
 
 /***/ }),
 
+/***/ "./src/js/module/function.js":
+/*!***********************************!*\
+  !*** ./src/js/module/function.js ***!
+  \***********************************/
+/*! exports provided: openModal, closeModal, modalInfo, withoutScrollbar, withScrollbar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modalInfo", function() { return modalInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withoutScrollbar", function() { return withoutScrollbar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withScrollbar", function() { return withScrollbar; });
+/* harmony import */ var _events_database__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./events-database */ "./src/js/module/events-database.js");
+
+
+function openModal(modal, background) {
+  modal.classList.add('active');
+  background.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(modal, closeTrigger, background) {
+  background.addEventListener('click', e => {
+    if (e.target.classList.contains('dark-bg')) {
+      shutter(modal, background);
+    }
+    withScrollbar();
+  });
+  closeTrigger.addEventListener('click', e => {
+    shutter(modal, background);
+    withScrollbar();
+  });
+}
+;
+function shutter(modal, background) {
+  modal.classList.remove('active');
+  background.classList.remove('active');
+  document.body.style.overflow = '';
+}
+function modalInfo(modalInfoNum) {
+  const modalText = document.querySelector('.underpage-text');
+  const modalImg = document.querySelector('.underpage-img');
+  const modalLink = document.querySelector('.underpage-link');
+  modalText.innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].text;
+  modalImg.src = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].img;
+  modalLink.href = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].link;
+}
+function withoutScrollbar(beforeWidth) {
+  const page = document.querySelector('.page');
+  const afterWidth = document.documentElement.clientWidth;
+  console.log(afterWidth);
+  let widthDifference = afterWidth - beforeWidth;
+  console.log(widthDifference);
+  page.style.paddingRight = widthDifference + 'px';
+}
+function withScrollbar() {
+  const page = document.querySelector('.page');
+  page.style.paddingRight = '';
+}
+;
+
+/***/ }),
+
 /***/ "./src/js/module/modal.js":
 /*!********************************!*\
   !*** ./src/js/module/modal.js ***!
@@ -186,7 +250,7 @@ const eventsDatabase = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modal", function() { return modal; });
-/* harmony import */ var _events_database__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./events-database */ "./src/js/module/events-database.js");
+/* harmony import */ var _function__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./function */ "./src/js/module/function.js");
 
 const modal = () => {
   modalManage('.underpage', '.festivals', '.underpage-close', '.dark-bg');
@@ -197,47 +261,41 @@ function modalManage(modalClass, triggerClass, closerClass, backgroundClass) {
   const modal = document.querySelector(modalClass);
   const closer = document.querySelector(closerClass);
   const background = document.querySelector(backgroundClass);
-  openModal(modal, trigger, background);
-  closeModal(modal, closer, background);
+  modalOpener(modal, trigger, background);
+  Object(_function__WEBPACK_IMPORTED_MODULE_0__["closeModal"])(modal, closer, background);
 }
 function modalLikeManage(modalClass, triggerClass, closerClass, backgroundClass) {
   const trigger = document.querySelector(triggerClass);
   const modal = document.querySelector(modalClass);
   const closer = document.querySelector(closerClass);
   const background = document.querySelector(backgroundClass);
-  function openLikeModal(modal, trigger, background) {
-    trigger.addEventListener('click', e => {
-      modal.classList.add('active');
-      background.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  }
   openLikeModal(modal, trigger, background);
-  closeModal(modal, closer, background);
+  Object(_function__WEBPACK_IMPORTED_MODULE_0__["closeModal"])(modal, closer, background);
 }
-function openModal(modal, openTrigger, background) {
+;
+function openLikeModal(modal, trigger, background) {
+  let beforeWidth = document.documentElement.clientWidth;
+  console.log(beforeWidth);
+  trigger.addEventListener('click', e => {
+    modal.classList.add('active');
+    background.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["withoutScrollbar"])(beforeWidth);
+  });
+}
+function modalOpener(modal, openTrigger, background) {
   openTrigger.addEventListener('click', e => {
     let target = e.target;
     if (fillingInfo(target)) {
       return;
     } else if (!e.target.classList.contains('festivals')) {
-      modal.classList.add('active');
-      background.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      let beforeWidth = document.documentElement.clientWidth;
+      Object(_function__WEBPACK_IMPORTED_MODULE_0__["openModal"])(modal, background);
+      Object(_function__WEBPACK_IMPORTED_MODULE_0__["withoutScrollbar"])(beforeWidth);
     }
   });
 }
-function closeModal(modal, closeTrigger, background) {
-  closeTrigger.addEventListener('click', e => {
-    modal.classList.remove('active');
-    background.classList.remove('active');
-    document.body.style.overflow = '';
-  });
-}
 function fillingInfo(target) {
-  const modalText = document.querySelector('.underpage-text');
-  const modalImg = document.querySelector('.underpage-img');
-  const modalLink = document.querySelector('.underpage-link');
   let fastName;
   if (target.tagName == 'LI') {
     fastName = target.classList[1];
@@ -248,11 +306,10 @@ function fillingInfo(target) {
   } else if (target.parentNode.parentNode.classList.contains('festival')) {
     fastName = target.parentNode.parentNode.classList[1];
   }
-  modalText.innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[fastName].text;
-  modalImg.src = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[fastName].img;
-  modalLink.href = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[fastName].link;
+  Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(fastName);
   return false;
 }
+;
 
 /***/ }),
 
@@ -292,22 +349,24 @@ function scrolling(trigger, target) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectedFests", function() { return selectedFests; });
-/* harmony import */ var _events_database__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./events-database */ "./src/js/module/events-database.js");
+/* harmony import */ var _function__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./function */ "./src/js/module/function.js");
+/* harmony import */ var _events_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events-database */ "./src/js/module/events-database.js");
+
 
 const selectedFests = () => {
   const festivals = document.querySelector('.festivals');
   const festivalLikes = document.querySelectorAll('.festival-like');
   const modalList = document.querySelector('.favorite-list');
-  let localNewNum = 0;
-  startSession(localNewNum, modalList, festivalLikes);
-  likeChoise(localNewNum, modalList, festivals);
+  startSession(modalList, festivalLikes);
+  likeChoise(modalList, festivals, festivalLikes);
+  deleteLikes(modalList, festivalLikes);
 };
-function startSession(localNewNum, modalList, festivalLikes) {
-  modalAddItem(localStorage.length, modalList, localNewNum, festivalLikes);
+function startSession(modalList, festivalLikes) {
+  modalStartAddItems(modalList, festivalLikes);
   likeAudit(festivalLikes);
   auditListEmpty(modalList);
 }
-function likeChoise(localNewNum, modalList, festivals) {
+function likeChoise(modalList, festivals, festivalLikes) {
   festivals.addEventListener('click', e => {
     let target = e.target;
     if (target.classList.contains('festival-like')) {
@@ -318,36 +377,55 @@ function likeChoise(localNewNum, modalList, festivals) {
         localStorage.removeItem(festSequenceNum);
         deleteNoLikesFest(festSequenceNum);
         auditListEmpty(modalList);
-        localNewNum -= 1;
       } else if (target.classList.contains('no-like')) {
         target.classList.remove('no-like');
         target.classList.add('like');
         let festSequenceNum = target.classList[1];
         let festType = target.previousElementSibling.classList[1];
         localStorage.setItem(festSequenceNum, festType);
-        modalAddItem(1, modalList, localNewNum);
+        addItems(modalList, festSequenceNum, festivalLikes);
       }
     }
   });
 }
-function modalAddItem(localActiveNum, modalList, localNewNum, festivalLikes) {
+;
+function addItems(modalList, festSequenceNum, festivalLikes) {
+  const template = document.getElementById('tmplt');
+  modalList.append(template.content.cloneNode(true));
+  modalList.lastElementChild.classList.add(festSequenceNum);
+  modalList.lastElementChild.querySelector('.item-name').innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_1__["eventsDatabase"])()[festSequenceNum].name;
+  modalList.lastElementChild.querySelector('.item-type').classList.add(localStorage.getItem(festSequenceNum));
+  auditListEmpty(modalList);
+  deleteLikes(modalList, festivalLikes);
+  modalOpener();
+}
+function modalStartAddItems(modalList, festivalLikes) {
   const template = document.getElementById('tmplt');
   auditListEmpty(modalList);
-  console.log(modalList);
-  let numItems = localStorage.length;
-  let childrens = modalList.children;
   if (localStorage.length > 0) {
-    for (let i = 0 + localNewNum; i < localStorage.length; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
       modalList.append(template.content.cloneNode(true));
-      modalList.lastElementChild.classList.add(i);
-      modalList.lastElementChild.querySelector('.item-name').innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[localStorage.key(i)].name;
+      modalList.lastElementChild.classList.add(localStorage.key(i));
+      modalList.lastElementChild.querySelector('.item-name').innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_1__["eventsDatabase"])()[localStorage.key(i)].name;
       modalList.lastElementChild.querySelector('.item-type').classList.add(localStorage.getItem(localStorage.key(i)));
     }
   } else {
     auditListEmpty(modalList);
   }
-  deleteLikes(localNewNum, modalList, festivalLikes);
-  localNewNum += localActiveNum;
+  deleteLikes(modalList, festivalLikes);
+  modalOpener();
+}
+function deleteLikes(modalList, festivalLikes) {
+  const deleteBtns = document.querySelectorAll('.item-delete');
+  console.log('delete');
+  for (let button of deleteBtns) {
+    button.addEventListener('click', e => {
+      localStorage.removeItem(e.target.parentElement.classList[1]);
+      e.target.parentElement.remove();
+      likeAudit(festivalLikes);
+      auditListEmpty(modalList);
+    });
+  }
 }
 function likeAudit(festivalLikes) {
   for (let fest of festivalLikes) {
@@ -358,18 +436,6 @@ function likeAudit(festivalLikes) {
       fest.classList.remove('like');
       fest.classList.add('no-like');
     }
-  }
-}
-function deleteLikes(localNewNum, modalList, festivalLikes) {
-  const buttonsDelete = document.querySelectorAll('.item-delete');
-  for (let button of buttonsDelete) {
-    button.addEventListener('click', e => {
-      localStorage.removeItem(e.target.parentElement.classList[1]);
-      e.target.parentElement.remove();
-      likeAudit(festivalLikes);
-      auditListEmpty(modalList);
-      localNewNum--;
-    });
   }
 }
 function auditListEmpty(modalList) {
@@ -387,6 +453,22 @@ function deleteNoLikesFest(festSequenceNum) {
     if (fest.classList.contains(festSequenceNum)) {
       fest.remove();
     }
+  }
+}
+function modalOpener() {
+  const infoItems = document.querySelectorAll('.item-info');
+  const modal = document.querySelector('.underpage');
+  const background = document.querySelector('.dark-bg');
+  const closer = document.querySelector('.underpage-close');
+  let beforeWidth = document.documentElement.clientWidth;
+  console.log(beforeWidth);
+  for (let item of infoItems) {
+    item.addEventListener('click', e => {
+      Object(_function__WEBPACK_IMPORTED_MODULE_0__["openModal"])(modal, background);
+      Object(_function__WEBPACK_IMPORTED_MODULE_0__["withoutScrollbar"])(beforeWidth);
+      Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(item.parentElement.classList[1]);
+      Object(_function__WEBPACK_IMPORTED_MODULE_0__["closeModal"])(modal, closer, background);
+    });
   }
 }
 

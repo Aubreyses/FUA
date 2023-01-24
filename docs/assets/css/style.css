@@ -78,6 +78,10 @@ body {
   color: #fff;
 }
 
+.page {
+  width: 100%;
+}
+
 .container {
   width: 100%;
   max-width: 1600px;
@@ -626,18 +630,13 @@ footer {
 }
 
 .bulhakovfest {
-  background: url(../img/festivals/bulhakovFest.jpg) center no-repeat;
+  background: url(../img/festivals/bulhakovfest.jpg) center no-repeat;
   background-size: 132%;
 }
 
 .woodstock {
   background: url(../img/festivals/woodstock.jpg) center no-repeat;
   background-size: 110%;
-}
-
-.musical {
-  background: url(../img/interests-icon/musical.png);
-  background-size: 100%;
 }
 
 .art-jazz {
@@ -648,6 +647,11 @@ footer {
 .docudays {
   background: url(../img/festivals/docudays.jpg) center no-repeat;
   background-size: 110%;
+}
+
+.musical {
+  background: url(../img/interests-icon/musical.png);
+  background-size: 100%;
 }
 
 .art {
