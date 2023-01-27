@@ -356,6 +356,7 @@ const selectedFests = () => {
   const festivals = document.querySelector('.festivals');
   const festivalLikes = document.querySelectorAll('.festival-like');
   const modalList = document.querySelector('.favorite-list');
+  localStorage.clear();
   startSession(modalList, festivalLikes);
   likeChoise(modalList, festivals, festivalLikes);
   deleteLikes(modalList, festivalLikes);
@@ -404,7 +405,6 @@ function addItems(modalList, festSequenceNum, festivalLikes) {
 }
 function modalStartAddItems(modalList, festivalLikes) {
   const template = document.getElementById('tmplt');
-  console.log(localStorage.length)
   for (let i = 0; i < localStorage.length; i++) {
     modalList.append(template.content.cloneNode(true));
     modalList.lastElementChild.classList.add(localStorage.key(i));
