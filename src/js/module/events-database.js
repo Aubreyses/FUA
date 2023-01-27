@@ -8,7 +8,7 @@ export const eventsDatabase = () => {
             агенцією PMK Event Agency, яка є власником київського нічного клубу Atlas, від якого
             фестиваль і отримав назву. Раніше називався Atlas Weekend, 1 лютого 2022 року
             організатори повідомили про зміну назви на фестиваль Atlas.`,
-            img: '../../assets/img/modal/atlas.png',
+            img: 'assets/img/modal/atlas.png',
             link: 'https://atlasfestival.com/'
         },
     
@@ -17,7 +17,7 @@ export const eventsDatabase = () => {
             text: `«Бандерштат» — всеукраїнський «фестиваль українського духу»,
             що проводиться щоліта на Волині, у місті Луцьку та околицях. Він є артвізитівкою цього краю.
             Вперше проведений 2007 року й відтоді став щорічним.`,
-            img: '../../assets/img/modal/bandershtat.png',
+            img: 'assets/img/modal/bandershtat.png',
             link: 'http://bandershtat.org.ua/',
         },
     
@@ -28,7 +28,7 @@ export const eventsDatabase = () => {
             величезної кількості споріднених ідеєю людей. У 1995 році для волонтерів польської акції
             «Великий Оркестр Святкової Допомоги» (фундація «WOŚP») було організовано перший польський
             фестиваль під назвою «Зупинка Woodstock» («Przystanek Woodstock»).`,
-            img: '../../assets/img/modal/woodstock.jpg',
+            img: 'assets/img/modal/woodstock.jpg',
             link: 'https://www.facebook.com/woodstock.in.ua/',
         },
     
@@ -38,7 +38,7 @@ export const eventsDatabase = () => {
             ініціатором та спонсором якого є Фонд «Культурні Новації» відомого мецената та букініста Влада Трубіцина.
             Метою заходу є збереження та популяризація історичних місць та славетних київських імен, підтримка міської
             культури, запровадження живих та інтерактивних форм вшанування відомих історичних особистостей міста Києва.`,
-            img: '../../assets/img/modal/bulgakovfest.jpg',
+            img: 'assets/img/modal/bulgakovfest.jpg',
             link: 'https://www.facebook.com/Bulgakovfestkyiv/',
         },
 
@@ -48,7 +48,7 @@ export const eventsDatabase = () => {
             Почавши свою історію у 2007 році, цей мистецький захід став її своєрідною візитною карткою. Фестиваль об’єднує не лише
             різні жанри мистецтва в темі джазової музики, але й міста. Луцьк і Рівне на деякий час стають центром культурного життя
             та після літа починають фестивальний рух в України.`,
-            img: '../../assets/img/modal/art-jazz.jpg',
+            img: 'assets/img/modal/art-jazz.jpg',
             link: 'http://artjazz.info/',
         }, 
 
@@ -57,7 +57,7 @@ export const eventsDatabase = () => {
             text: `Найбільший в Україні Міжнародний фестиваль документального кіно про права людини, який відбувається щороку впродовж
             останнього тижня березня у Києві. Після завершення фестивальної програми з жовтня місяця і до кінця року в регіонах
             України традиційно відбуваються покази найкращих фільмів у рамках Мандрівного фестивалю.`,
-            img: '../../assets/img/modal/docudays.jpg',
+            img: 'assets/img/modal/docudays.jpg',
             link: 'https://docudays.ua/',
         }
     ];
