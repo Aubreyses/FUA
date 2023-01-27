@@ -227,9 +227,7 @@ function modalInfo(modalInfoNum) {
 function withoutScrollbar(beforeWidth) {
   const page = document.querySelector('.page');
   const afterWidth = document.documentElement.clientWidth;
-  console.log(afterWidth);
   let widthDifference = afterWidth - beforeWidth;
-  console.log(widthDifference);
   page.style.paddingRight = widthDifference + 'px';
 }
 function withScrollbar() {
@@ -275,7 +273,6 @@ function modalLikeManage(modalClass, triggerClass, closerClass, backgroundClass)
 ;
 function openLikeModal(modal, trigger, background) {
   let beforeWidth = document.documentElement.clientWidth;
-  console.log(beforeWidth);
   trigger.addEventListener('click', e => {
     modal.classList.add('active');
     background.classList.add('active');
@@ -417,7 +414,6 @@ function modalStartAddItems(modalList, festivalLikes) {
 }
 function deleteLikes(modalList, festivalLikes) {
   const deleteBtns = document.querySelectorAll('.item-delete');
-  console.log('delete');
   for (let button of deleteBtns) {
     button.addEventListener('click', e => {
       localStorage.removeItem(e.target.parentElement.classList[1]);
@@ -460,10 +456,11 @@ function modalOpener() {
   const modal = document.querySelector('.underpage');
   const background = document.querySelector('.dark-bg');
   const closer = document.querySelector('.underpage-close');
+  const favoriteModal = document.querySelector('.favorite-modal');
   let beforeWidth = document.documentElement.clientWidth;
-  console.log(beforeWidth);
   for (let item of infoItems) {
     item.addEventListener('click', e => {
+      favoriteModal.classList.remove('active');
       Object(_function__WEBPACK_IMPORTED_MODULE_0__["openModal"])(modal, background);
       Object(_function__WEBPACK_IMPORTED_MODULE_0__["withoutScrollbar"])(beforeWidth);
       Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(item.parentElement.classList[1]);
@@ -491,27 +488,45 @@ const sort = () => {
   const allFestivals = document.querySelectorAll('.festival');
   const sortForm = document.querySelector('.form-choise');
   const checkboxs = document.querySelectorAll('.checkbox');
-  festivalSort(allFestivals, sortForm, checkboxs);
+  const checkboxTexts = document.querySelectorAll('.checkbox-text');
   menuManage(menu, menuArrow, sortForm, menuButton);
+  choiseInput(sortForm, allFestivals, checkboxs);
+  choiseText(checkboxTexts, allFestivals, checkboxs);
 };
-function festivalSort(festivals, sortForm, checkboxs) {
-  sortForm.addEventListener('change', e => {
-    for (let input of checkboxs) {
-      if (!input.checked) {
-        for (let fest of festivals) {
-          if (input.name == fest.classList[3]) {
-            fest.classList.add('unselected');
-          }
-        }
+function choiseText(checkboxTexts, festivals, checkboxs) {
+  for (let text of checkboxTexts) {
+    text.addEventListener('click', e => {
+      const checkbox = e.target.previousElementSibling;
+      if (checkbox.checked === false) {
+        checkbox.checked = true;
       } else {
-        for (let fest of festivals) {
-          if (input.name == fest.classList[3]) {
-            fest.classList.remove('unselected');
-          }
+        checkbox.checked = false;
+      }
+      festsSorted(festivals, checkboxs);
+    });
+  }
+}
+function choiseInput(sortForm, festivals, checkboxs) {
+  sortForm.addEventListener('change', e => {
+    festsSorted(festivals, checkboxs);
+  });
+}
+function festsSorted(festivals, checkboxs) {
+  for (let input of checkboxs) {
+    if (!input.checked) {
+      for (let fest of festivals) {
+        if (input.name == fest.classList[3]) {
+          fest.classList.add('unselected');
+        }
+      }
+    } else {
+      for (let fest of festivals) {
+        if (input.name == fest.classList[3]) {
+          fest.classList.remove('unselected');
         }
       }
     }
-  });
+  }
 }
 function menuManage(menu, menuArrow, form, button) {
   button.addEventListener('click', e => {

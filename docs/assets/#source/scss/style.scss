@@ -185,6 +185,7 @@ nav {
 
 .favorite-list {
     width: 100%;
+    height: 100%;
     padding: 30px;
 
     overflow: auto;
@@ -258,6 +259,14 @@ nav {
 
 .item-delete:hover {
     opacity: .8;
+}
+
+.favorite-nav {
+    display: none;
+
+    padding: 20px 30px;
+
+    border-top: 2px #222 solid;
 }
 
 // Info //
@@ -605,7 +614,7 @@ footer {
 
     display: none;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 
     &-img {
@@ -725,7 +734,7 @@ footer {
 
 .bulhakovfest {
     background: url(../img/festivals/bulhakovFest.jpg) center no-repeat;
-    background-size: 132%;
+    background-size: 135%;
 }
 
 .woodstock {
@@ -785,4 +794,526 @@ footer {
 .like {
     background: url(../img/likes/like.png) center no-repeat;
     background-size: 100%;
+}
+
+// Media //
+
+@media(max-width: 990px) {
+    // Header
+    .link {
+        margin-right: 62px;
+    }
+
+    // Favorite 
+    .favorite-modal {
+        max-width: 380px;
+    }
+
+    .favorite-title {
+        font-size: 30px;
+    }
+
+    .favorite-title::after {
+        left: -42px;
+    }
+
+    // Festivals
+    .festival {
+        max-width: 360px;
+        min-height: 250px;
+
+        &-title {
+            font-size: 32px;
+        }
+    }
+
+    .uknown-suptitle {
+        font-size: 30px;
+    }
+
+    .uknown-add {
+        width: 70px;
+        height: 70px;
+    }
+
+    .uknown-title {
+        font-size: 42px;
+    }
+}
+
+@media(max-width: 880px) {
+    // Header 
+    .link {
+        margin-right: 52px;
+    }
+
+    // Favorite 
+    .favorite-modal {
+        max-width: 360px;
+    }
+
+    .favorite-title {
+        font-size: 28px;
+    }
+
+    // Festivals
+    .festival {
+        max-width: 320px;
+        min-height: 230px;
+
+        &-title {
+            font-size: 27px;
+        }
+    }
+
+    .bulhakovfest {
+        background-size: 142%;
+    }
+
+    .uknown-suptitle {
+        font-size: 28px;
+    }
+
+    .uknown-add {
+        width: 60px;
+        height: 60px;
+    }
+
+    .uknown-title {
+        font-size: 38px;
+    }
+}
+
+@media(max-width: 770px) {
+    // Header 
+    .logo {
+        font-size: 44px;
+    }
+
+    .link {
+        width: 28px;
+        height: 28px;
+
+        margin-right: 35px;
+
+        &-img {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    .favorite {
+        width: 28px;
+        height: 28px;
+
+        &-img {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    // Favorite 
+    .favorite-modal {
+        max-width: 320px;
+    }
+
+    .favorite-title {
+        font-size: 24px;
+    }
+
+    .favorite-title::after {
+        top: 12px;
+        width: 38px;
+    }
+
+    .favorite-close {
+        width: 22px;
+        height: 22px;
+    }
+
+    .close-img {
+        width: 22px;
+        height: 22px;
+    }
+
+    // Festivals
+    .festival {
+        max-width: 420px;
+        min-height: 280px;
+
+        &-title {
+            font-size: 36px;
+        }
+    }
+
+    .uknown-suptitle {
+        font-size: 32px;
+    }
+
+    .uknown-add {
+        width: 70px;
+        height: 70px;
+    }
+
+    .uknown-title {
+        font-size: 42px;
+    }
+
+    // Modal
+    .underpage {
+        width: 520px;
+        height: 520px;
+
+        padding: 20px;
+    }
+
+    .underpage-img {
+        height: 250px;
+    }
+
+    .underpage-text {
+        font-size: 14px;
+    }
+
+    .underpage-button {
+        width: 160px;
+        height: 45px;
+        min-height: 45px;
+    }
+
+    .underpage-button p {
+        font-size: 20px;
+    }
+
+    // Footer
+    footer {
+        padding: 60px 35px;
+    }
+
+    .footer-text {
+        font-size: 22px;
+    }
+
+    .arrow {
+        width: 46px;
+        height: 46px;
+
+        &-img {
+            width: 46px;
+            height: 46px;
+        }
+    }
+}
+
+@media(max-width: 550px) {
+    // Header
+    header {
+        justify-content: space-between;
+
+        padding: 20px 30px 0 30px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    // Main 
+    .info {
+        padding-top: 240px;
+    }
+
+    // Favorite
+    .favorite-modal {
+        max-width: 280px;
+    }
+
+    .favorite-header {
+        padding: 30px 5px;
+    }
+
+    .favorite-title {
+        font-size: 22px;
+    }
+
+    .favorite-title::after {
+        top: 11px;
+        left: -38px;
+        width: 38px;
+    }
+
+    .favorite-close {
+        width: 22px;
+        height: 22px;
+
+        margin-right: 40px;
+    }
+
+    .close-img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .favorite-list {
+        padding: 30px 15px;
+    }
+
+    .item-name {
+        font-size: 14px;
+    }
+
+    .favorite-nav {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .link-img {
+        width: 32px;
+        height: 32px;
+    }
+
+    // Festivals
+    .festival {
+        max-width: 380px;
+        min-height: 260px;
+
+        &-title {
+            font-size: 34px;
+        }
+    }
+
+    // Modal
+    .underpage {
+        width: 410px;
+        height: 480px;
+    }
+
+    .underpage-img {
+        height: 180px;
+        margin-bottom: 20px;
+    }
+
+    .underpage-text {
+        font-size: 14px;
+    }
+
+    .underpage-button {
+        width: 150px;
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .underpage-button p {
+        font-size: 18px;
+    }
+
+    // Footer 
+    footer {
+        padding: 60px 15px;
+    }
+
+    .footer-text {
+        font-size: 20px;
+    }
+
+    .arrow {
+        width: 36px;
+        height: 36px;
+
+        &-img {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
+
+@media(max-width: 450px) {
+    // Festivals
+    .menu-button {
+        font-size: 14px;
+    }
+
+    .menu-img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .festival {
+        max-width: 320px;
+        min-height: 230px;
+
+        &-title {
+            font-size: 26px;
+        }
+    }
+
+    .festival-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .festival-like {
+        width: 34px;
+        height: 34px;
+    }
+
+    .uknown-suptitle {
+        font-size: 30px;
+    }
+
+    .uknown-add {
+        width: 60px;
+        height: 60px;
+    }
+
+    .uknown-title {
+        font-size: 36px;
+    }
+
+    // Modal
+    .underpage {
+        width: 350px;
+        padding: 15px;
+    }
+
+    .underpage-button {
+        width: 130px;
+        height: 35px;
+        min-height: 35px;
+    }
+
+    .underpage-button p {
+        font-size: 16px;
+    }
+
+    // Footer
+    .footer-text {
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 380px) {
+    // Header
+    header {
+        justify-content: space-between;
+
+        padding: 20px 10px 0 10px;
+    }
+
+    // Main 
+    .info {
+        padding-top: 180px;
+    }
+
+
+     // Favorite
+     .favorite-modal {
+        max-width: 260px;
+    }
+
+    .favorite-title {
+        font-size: 20px;
+    }
+
+    .favorite-title::after {
+
+        width: 36px;
+    }
+
+    .favorite-close {
+        width: 20px;
+        height: 20px;
+    }
+
+    .close-img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .link {
+        width: 30px;
+        height: 30px;
+    }
+
+    .link-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    // Festival
+    .menu.active {
+        max-width: 270px;
+    }
+
+    .festival {
+        max-width: 280px;
+        min-height: 190px;
+
+        &-title {
+            font-size: 21px;
+        }
+    }
+
+    .festival-date {
+        font-size: 12px;
+    }
+
+    .festival-place {
+        font-size: 14px;
+    }
+
+    .festival-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .festival-like {
+        width: 28px;
+        height: 28px;
+    }
+
+    .uknown-suptitle {
+        font-size: 26px;
+    }
+
+    .uknown-add {
+        width: 45px;
+        height: 45px;
+    }
+
+    .uknown-title {
+        font-size: 32px;
+    }
+
+    // Modal
+    .underpage {
+        width: 290px;
+        padding: 15px;
+    }
+
+    .underpage-button {
+        width: 110px;
+    }
+
+    .underpage-button p {
+        font-size: 14px;
+    }
+
+    // Footer 
+    footer {
+        padding: 60px 5px;
+    }
+
+    .footer-text {
+        font-size: 16px;
+    }
+
+    .arrow {
+        width: 30px;
+        height: 30px;
+
+        &-img {
+            width: 30px;
+            height: 30px;
+        }
+    }
 }
