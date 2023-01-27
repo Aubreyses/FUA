@@ -399,6 +399,7 @@ function addItems(modalList, festSequenceNum, festivalLikes) {
 function modalStartAddItems(modalList, festivalLikes) {
   const template = document.getElementById('tmplt');
   auditListEmpty(modalList);
+  console.log(localStorage.length);
   if (localStorage.length > 0) {
     for (let i = 0; i < localStorage.length; i++) {
       modalList.append(template.content.cloneNode(true));
