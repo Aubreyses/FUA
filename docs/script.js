@@ -361,6 +361,7 @@ const selectedFests = () => {
   deleteLikes(modalList, festivalLikes);
 };
 function startSession(modalList, festivalLikes) {
+  console.log(localStorage.length);
   if (localStorage.length > 0) {
     modalStartAddItems(modalList, festivalLikes);
   }
