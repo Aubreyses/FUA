@@ -13,7 +13,10 @@ export const selectedFests = () => {
 
 function startSession(modalList, festivalLikes) {
 
-    modalStartAddItems(modalList, festivalLikes );
+    if(localStorage.length > 0) {
+        modalStartAddItems(modalList, festivalLikes);
+    }
+
     likeAudit(festivalLikes);
 
     auditListEmpty(modalList);
@@ -71,20 +74,12 @@ function addItems(modalList, festSequenceNum, festivalLikes) {
 function modalStartAddItems(modalList, festivalLikes) {
     const template = document.getElementById('tmplt');
 
-    auditListEmpty(modalList)
+    for( let i = 0; i < localStorage.length; i++) {
+        modalList.append(template.content.cloneNode(true))
 
-    console.log(localStorage.length)
-
-    if( localStorage.length > 0 ) {
-        for( let i = 0; i < localStorage.length; i++) {
-            modalList.append(template.content.cloneNode(true))
-
-            modalList.lastElementChild.classList.add( localStorage.key(i) )
-            modalList.lastElementChild.querySelector('.item-name').innerHTML = eventsDatabase()[ localStorage.key(i) ].name
-            modalList.lastElementChild.querySelector('.item-type').classList.add(localStorage.getItem( localStorage.key(i) ))
-        }
-    } else {
-        auditListEmpty(modalList);
+        modalList.lastElementChild.classList.add( localStorage.key(i) )
+        modalList.lastElementChild.querySelector('.item-name').innerHTML = eventsDatabase()[ localStorage.key(i) ].name
+        modalList.lastElementChild.querySelector('.item-type').classList.add(localStorage.getItem( localStorage.key(i) ))
     }
 
     deleteLikes(modalList, festivalLikes);

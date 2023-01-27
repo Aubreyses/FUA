@@ -296,14 +296,16 @@ function fillingInfo(target) {
   let fastName;
   if (target.tagName == 'LI') {
     fastName = target.classList[1];
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(fastName);
   } else if (target.classList.contains('festival-like')) {
     return true;
   } else if (target.parentNode.classList.contains('festival')) {
     fastName = target.parentNode.classList[1];
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(fastName);
   } else if (target.parentNode.parentNode.classList.contains('festival')) {
     fastName = target.parentNode.parentNode.classList[1];
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(fastName);
   }
-  Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(fastName);
   return false;
 }
 ;
@@ -359,7 +361,9 @@ const selectedFests = () => {
   deleteLikes(modalList, festivalLikes);
 };
 function startSession(modalList, festivalLikes) {
-  modalStartAddItems(modalList, festivalLikes);
+  if (localStorage.length > 0) {
+    modalStartAddItems(modalList, festivalLikes);
+  }
   likeAudit(festivalLikes);
   auditListEmpty(modalList);
 }
@@ -398,17 +402,11 @@ function addItems(modalList, festSequenceNum, festivalLikes) {
 }
 function modalStartAddItems(modalList, festivalLikes) {
   const template = document.getElementById('tmplt');
-  auditListEmpty(modalList);
-  console.log(localStorage.length);
-  if (localStorage.length > 0) {
-    for (let i = 0; i < localStorage.length; i++) {
-      modalList.append(template.content.cloneNode(true));
-      modalList.lastElementChild.classList.add(localStorage.key(i));
-      modalList.lastElementChild.querySelector('.item-name').innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_1__["eventsDatabase"])()[localStorage.key(i)].name;
-      modalList.lastElementChild.querySelector('.item-type').classList.add(localStorage.getItem(localStorage.key(i)));
-    }
-  } else {
-    auditListEmpty(modalList);
+  for (let i = 0; i < localStorage.length; i++) {
+    modalList.append(template.content.cloneNode(true));
+    modalList.lastElementChild.classList.add(localStorage.key(i));
+    modalList.lastElementChild.querySelector('.item-name').innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_1__["eventsDatabase"])()[localStorage.key(i)].name;
+    modalList.lastElementChild.querySelector('.item-type').classList.add(localStorage.getItem(localStorage.key(i)));
   }
   deleteLikes(modalList, festivalLikes);
   modalOpener();

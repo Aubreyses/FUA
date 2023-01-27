@@ -62,21 +62,22 @@ function fillingInfo(target) {
 
     if(target.tagName == 'LI') {
 
-        fastName = target.classList[1]
+        fastName = target.classList[1];
+        modalInfo(fastName);
     } else if (target.classList.contains('festival-like')) {
 
         return true;
 
     } else if (target.parentNode.classList.contains('festival')) {
 
-        fastName = target.parentNode.classList[1]
+        fastName = target.parentNode.classList[1];
+        modalInfo(fastName);
 
     } else if (target.parentNode.parentNode.classList.contains('festival')) {
 
-        fastName = target.parentNode.parentNode.classList[1]
+        fastName = target.parentNode.parentNode.classList[1];
+        modalInfo(fastName);
     }
-
-    modalInfo(fastName);
 
     return false
 };
