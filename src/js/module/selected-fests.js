@@ -78,7 +78,8 @@ function modalStartAddItems(modalList, festivalLikes) {
     if( localStorage.length > 0 ) {
         for( let i = 0; i < localStorage.length; i++) {
             modalList.append(template.content.cloneNode(true))
-
+            
+            console.log(localStorage.length)
             modalList.lastElementChild.classList.add( localStorage.key(i) )
             modalList.lastElementChild.querySelector('.item-name').innerHTML = eventsDatabase()[ localStorage.key(i) ].name
             modalList.lastElementChild.querySelector('.item-type').classList.add(localStorage.getItem( localStorage.key(i) ))
