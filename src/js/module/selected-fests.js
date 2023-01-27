@@ -14,6 +14,7 @@ export const selectedFests = () => {
 }
 
 function startSession(modalList, festivalLikes) {
+    localStorage.clear();
     console.log(localStorage.getItem(localStorage.key(0)))
     console.log(localStorage.length)
     if(localStorage.length > 0) {
