@@ -6,17 +6,12 @@ export const selectedFests = () => {
     const festivalLikes = document.querySelectorAll('.festival-like');
     const modalList = document.querySelector('.favorite-list');
 
-    window.localStorage.clear();
-
     startSession(modalList, festivalLikes);
     likeChoise(modalList, festivals, festivalLikes);
     deleteLikes(modalList, festivalLikes);
 }
 
 function startSession(modalList, festivalLikes) {
-    localStorage.clear();
-    console.log(localStorage.getItem(localStorage.key(0)))
-    console.log(localStorage.length)
     if(localStorage.length > 0) {
         modalStartAddItems(modalList, festivalLikes);
     }
