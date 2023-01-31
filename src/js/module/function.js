@@ -38,7 +38,8 @@ function modalInfo(modalInfoNum) {
 
     modalText.innerHTML = eventsDatabase()[modalInfoNum].text;
     modalImg.src = eventsDatabase()[modalInfoNum].img;
-    modalLink.href = eventsDatabase()[modalInfoNum].link
+    modalLink.href = eventsDatabase()[modalInfoNum].link;
+    history.pushState(null, null, eventsDatabase()[modalInfoNum].url)
 }
 
 function withoutScrollbar(beforeWidth) {

@@ -130,14 +130,16 @@ const eventsDatabase = () => {
             фестиваль і отримав назву. Раніше називався Atlas Weekend, 1 лютого 2022 року
             організатори повідомили про зміну назви на фестиваль Atlas.`,
     img: 'assets/img/modal/atlas.png',
-    link: 'https://atlasfestival.com/'
+    link: 'https://atlasfestival.com/',
+    url: '/atlas'
   }, {
     name: 'Bandershtat',
     text: `«Бандерштат» — всеукраїнський «фестиваль українського духу»,
             що проводиться щоліта на Волині, у місті Луцьку та околицях. Він є артвізитівкою цього краю.
             Вперше проведений 2007 року й відтоді став щорічним.`,
     img: 'assets/img/modal/bandershtat.png',
-    link: 'http://bandershtat.org.ua/'
+    link: 'http://bandershtat.org.ua/',
+    url: '/bandershtat'
   }, {
     name: 'Woodstock',
     text: `«Вудсток» — один із наймасштабніших і найвизначніших
@@ -146,7 +148,8 @@ const eventsDatabase = () => {
             «Великий Оркестр Святкової Допомоги» (фундація «WOŚP») було організовано перший польський
             фестиваль під назвою «Зупинка Woodstock» («Przystanek Woodstock»).`,
     img: 'assets/img/modal/woodstock.jpg',
-    link: 'https://www.facebook.com/woodstock.in.ua/'
+    link: 'https://www.facebook.com/woodstock.in.ua/',
+    url: '/woodstock'
   }, {
     name: 'BulhakovFest',
     text: `«БулгаковFest» — щорічний фестиваль київської міської культури,
@@ -154,7 +157,8 @@ const eventsDatabase = () => {
             Метою заходу є збереження та популяризація історичних місць та славетних київських імен, підтримка міської
             культури, запровадження живих та інтерактивних форм вшанування відомих історичних особистостей міста Києва.`,
     img: 'assets/img/modal/bulgakovfest.jpg',
-    link: 'https://www.facebook.com/Bulgakovfestkyiv/'
+    link: 'https://www.facebook.com/Bulgakovfestkyiv/',
+    url: '/balhakovfest'
   }, {
     name: 'Art Jazz',
     text: `Міжнародний джазовий фестиваль «ART JAZZ» по праву вважається одним з наймасштабніших культурних заходів Волині.
@@ -162,14 +166,16 @@ const eventsDatabase = () => {
             різні жанри мистецтва в темі джазової музики, але й міста. Луцьк і Рівне на деякий час стають центром культурного життя
             та після літа починають фестивальний рух в України.`,
     img: 'assets/img/modal/art-jazz.jpg',
-    link: 'http://artjazz.info/'
+    link: 'http://artjazz.info/',
+    url: '/artjazz'
   }, {
     name: 'Docudays UA',
     text: `Найбільший в Україні Міжнародний фестиваль документального кіно про права людини, який відбувається щороку впродовж
             останнього тижня березня у Києві. Після завершення фестивальної програми з жовтня місяця і до кінця року в регіонах
             України традиційно відбуваються покази найкращих фільмів у рамках Мандрівного фестивалю.`,
     img: 'assets/img/modal/docudays.jpg',
-    link: 'https://docudays.ua/'
+    link: 'https://docudays.ua/',
+    url: '/docudays'
   }];
   return eventsStorage;
 };
@@ -223,6 +229,7 @@ function modalInfo(modalInfoNum) {
   modalText.innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].text;
   modalImg.src = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].img;
   modalLink.href = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].link;
+  history.pushState(null, null, Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].url);
 }
 function withoutScrollbar(beforeWidth) {
   const page = document.querySelector('.page');
@@ -330,8 +337,8 @@ function scrolling(trigger, target) {
   const scrollTarget = document.querySelector(target);
   scrollButton.addEventListener('click', e => {
     scrollTarget.scrollIntoView({
-      block: 'start',
-      behaviour: 'smooth'
+      behavior: 'smooth',
+      block: 'start'
     });
   });
 }

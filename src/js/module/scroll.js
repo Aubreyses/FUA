@@ -10,8 +10,8 @@ function scrolling (trigger, target) {
 
     scrollButton.addEventListener('click', (e) => {
         scrollTarget.scrollIntoView({
+            behavior: 'smooth',
             block: 'start',
-            behaviour: 'smooth'
         })
     })
 }

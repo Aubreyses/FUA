@@ -9,7 +9,8 @@ export const eventsDatabase = () => {
             фестиваль і отримав назву. Раніше називався Atlas Weekend, 1 лютого 2022 року
             організатори повідомили про зміну назви на фестиваль Atlas.`,
             img: 'assets/img/modal/atlas.png',
-            link: 'https://atlasfestival.com/'
+            link: 'https://atlasfestival.com/',
+            url: '/atlas',
         },
     
         {
@@ -19,6 +20,7 @@ export const eventsDatabase = () => {
             Вперше проведений 2007 року й відтоді став щорічним.`,
             img: 'assets/img/modal/bandershtat.png',
             link: 'http://bandershtat.org.ua/',
+            url: '/bandershtat'
         },
     
         {
@@ -30,6 +32,7 @@ export const eventsDatabase = () => {
             фестиваль під назвою «Зупинка Woodstock» («Przystanek Woodstock»).`,
             img: 'assets/img/modal/woodstock.jpg',
             link: 'https://www.facebook.com/woodstock.in.ua/',
+            url: '/woodstock'
         },
     
         {
@@ -40,6 +43,7 @@ export const eventsDatabase = () => {
             культури, запровадження живих та інтерактивних форм вшанування відомих історичних особистостей міста Києва.`,
             img: 'assets/img/modal/bulgakovfest.jpg',
             link: 'https://www.facebook.com/Bulgakovfestkyiv/',
+            url: '/balhakovfest'
         },
 
         {
@@ -50,6 +54,7 @@ export const eventsDatabase = () => {
             та після літа починають фестивальний рух в України.`,
             img: 'assets/img/modal/art-jazz.jpg',
             link: 'http://artjazz.info/',
+            url: '/artjazz'
         }, 
 
         {
@@ -59,6 +64,7 @@ export const eventsDatabase = () => {
             України традиційно відбуваються покази найкращих фільмів у рамках Мандрівного фестивалю.`,
             img: 'assets/img/modal/docudays.jpg',
             link: 'https://docudays.ua/',
+            url: '/docudays'
         }
     ];
 
