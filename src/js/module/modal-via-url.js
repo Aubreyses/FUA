@@ -4,8 +4,8 @@ export const openModalViaURL = () => {
     const modal = document.querySelector('.fest-modal');
     const background = document.querySelector('.dark-bg');
 
-    const url = new URL(window.location);
-    const decodeURL = decodeURIComponent(url.search).match(/#\w+/);
+    console.log(location.hash)
+    const decodeURL = decodeURIComponent(location.hash).match(/#\w+/);
 
     if(decodeURL !== null) {
        openModal(modal, background, decodeURL);

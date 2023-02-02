@@ -107,6 +107,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var url = window.location.href;
+function UrlExists(url) {
+  var http = new XMLHttpRequest();
+  http.open('HEAD', url, false);
+  http.send();
+  if (http.status != 404) return true;else return false;
+}
+UrlExists(url);
 Object(_module_modal__WEBPACK_IMPORTED_MODULE_1__["modal"])();
 Object(_module_sort__WEBPACK_IMPORTED_MODULE_0__["sort"])();
 Object(_module_selected_fests__WEBPACK_IMPORTED_MODULE_3__["selectedFests"])();
@@ -130,7 +138,7 @@ const eventsDatabase = () => {
   const eventsStorage = {
     '#atlas': {
       name: 'Atlas Weekend',
-      date: '17.06.2023',
+      date: '17-06-2023',
       place: 'Київ',
       text: `Atlas (до 2022 року – Atlas Weekend) — один з
             найбільших музичних фестивалів України. Проходить щорічно у Києві в першій половині
@@ -140,11 +148,11 @@ const eventsDatabase = () => {
             організатори повідомили про зміну назви на фестиваль Atlas.`,
       img: 'assets/img/modal/atlas.png',
       link: 'https://atlasfestival.com/',
-      url: '#atlas'
+      url: 'atlas'
     },
     '#bandershtat': {
       name: 'Bandershtat',
-      date: '26.02.2023',
+      date: '26-02-2023',
       place: 'Тернопіль',
       text: `«Бандерштат» — всеукраїнський «фестиваль українського духу»,
             що проводиться щоліта на Волині, у місті Луцьку та околицях. Він є артвізитівкою цього краю.
@@ -155,7 +163,7 @@ const eventsDatabase = () => {
     },
     '#woodstock': {
       name: 'Woodstock',
-      date: '12.09.2023',
+      date: '12-09-2023',
       place: 'Рівне',
       text: `«Вудсток» — один із наймасштабніших і найвизначніших
             в історії рок-фестивалів, символ вільного і мирного співжиття, а також взаємної допомоги 
@@ -168,7 +176,7 @@ const eventsDatabase = () => {
     },
     '#bulhakovfest': {
       name: 'BulhakovFest',
-      date: '12.09.2022',
+      date: '12-09-2022',
       place: 'Київ',
       text: `«БулгаковFest» — щорічний фестиваль київської міської культури,
             ініціатором та спонсором якого є Фонд «Культурні Новації» відомого мецената та букініста Влада Трубіцина.
@@ -180,7 +188,7 @@ const eventsDatabase = () => {
     },
     '#artjazz': {
       name: 'Art Jazz',
-      date: '24.06.2022',
+      date: '24-06-2022',
       place: 'Тернопіль',
       text: `Міжнародний джазовий фестиваль «ART JAZZ» по праву вважається одним з наймасштабніших культурних заходів Волині.
             Почавши свою історію у 2007 році, цей мистецький захід став її своєрідною візитною карткою. Фестиваль об’єднує не лише
@@ -192,7 +200,7 @@ const eventsDatabase = () => {
     },
     '#docudays': {
       name: 'Docudays UA',
-      date: '01-07.02.2022',
+      date: '01-07-02-2022',
       place: 'Київ',
       text: `Найбільший в Україні Міжнародний фестиваль документального кіно про права людини, який відбувається щороку впродовж
             останнього тижня березня у Києві. Після завершення фестивальної програми з жовтня місяця і до кінця року в регіонах
@@ -226,6 +234,8 @@ const formModal = () => {
   const closeButton = document.querySelector('.form-close');
   formOpener(trigger, modal, background);
   formCloser(background, closeButton, modal);
+  formLetterLimiter();
+  checkNumKey();
 };
 function formOpener(trigger, modal, background) {
   trigger.addEventListener('click', e => {
@@ -245,6 +255,27 @@ function formCloser(background, closeButton, modal) {
     e.preventDefault();
     Object(_function__WEBPACK_IMPORTED_MODULE_0__["shutter"])(modal, background);
     Object(_function__WEBPACK_IMPORTED_MODULE_0__["withScrollbar"])();
+  });
+}
+function formLetterLimiter() {
+  const letterForms = document.querySelectorAll('.form-text');
+  for (let form of letterForms) {
+    form.addEventListener('input', e => {
+      console.log(form.value.length);
+      if (form.value.length >= 30) {
+        return false;
+      }
+    });
+  }
+}
+function checkNumKey() {
+  const numForm = document.querySelector('.form-date');
+  numForm.addEventListener('keydown', e => {
+    if (e.keyCode == '8' || e.key >= '0' && e.key <= '9') {
+      return;
+    }
+    ;
+    e.preventDefault();
   });
 }
 
@@ -304,7 +335,7 @@ function modalInfo(modalInfoNum) {
   const url = new URL(location.href);
   url.searchParams.set('n', Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].url);
   url.searchParams.set('d', Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].date);
-  history.pushState('', '', url.search);
+  history.pushState('', '', Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].url + '-' + Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].date);
 }
 function withoutScrollbar(beforeWidth) {
   const page = document.querySelector('.page');
@@ -335,8 +366,8 @@ __webpack_require__.r(__webpack_exports__);
 const openModalViaURL = () => {
   const modal = document.querySelector('.fest-modal');
   const background = document.querySelector('.dark-bg');
-  const url = new URL(window.location);
-  const decodeURL = decodeURIComponent(url.search).match(/#\w+/);
+  console.log(location.hash);
+  const decodeURL = decodeURIComponent(location.hash).match(/#\w+/);
   if (decodeURL !== null) {
     openModal(modal, background, decodeURL);
   }
@@ -468,7 +499,9 @@ const selectedFests = () => {
   const festivals = document.querySelector('.festivals');
   const festivalLikes = document.querySelectorAll('.festival-like');
   const modalList = document.querySelector('.favorite-list');
-  localStorage.clear();
+
+  //localStorage.clear();
+
   startSession(modalList, festivalLikes);
   likeChoise(modalList, festivals, festivalLikes);
   deleteLikes(modalList, festivalLikes);

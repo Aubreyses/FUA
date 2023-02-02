@@ -7,7 +7,11 @@ export const formModal = () => {
 
     formOpener(trigger, modal, background); 
     
-    formCloser(background, closeButton, modal)
+    formCloser(background, closeButton, modal);
+
+    formLetterLimiter();
+
+    checkNumKey();
 }
 
 function formOpener(trigger, modal, background) {
@@ -36,4 +40,33 @@ function formCloser(background, closeButton, modal) {
 
         withScrollbar();
     });
+}
+
+
+function formLetterLimiter() {
+    const letterForms = document.querySelectorAll('.form-text');
+
+    for( let form of letterForms ) {
+        form.addEventListener('input', (e) => {
+            console.log(form.value.length);
+
+            if(form.value.length >= 30) {
+                return false;
+            }
+        })
+    }
+}
+
+function checkNumKey() {
+    const numForm = document.querySelector('.form-date')
+
+    numForm.addEventListener('keydown', (e) => {
+
+        if( e.keyCode == '8' || e.key >= '0' && e.key <= '9' ) {
+            return;
+                
+        };
+
+        e.preventDefault();
+    })
 }

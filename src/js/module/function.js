@@ -50,7 +50,7 @@ function modalInfo(modalInfoNum) {
     url.searchParams.set('n', eventsDatabase()[modalInfoNum].url);
     url.searchParams.set('d', eventsDatabase()[modalInfoNum].date);
 
-    history.pushState('', '', url.search);
+    history.pushState('', '', eventsDatabase()[modalInfoNum].url + '-' + eventsDatabase()[modalInfoNum].date);
 }
 
 function withoutScrollbar(beforeWidth) {
