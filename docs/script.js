@@ -468,10 +468,10 @@ const selectedFests = () => {
   const festivals = document.querySelector('.festivals');
   const festivalLikes = document.querySelectorAll('.festival-like');
   const modalList = document.querySelector('.favorite-list');
+  localStorage.clear();
   startSession(modalList, festivalLikes);
   likeChoise(modalList, festivals, festivalLikes);
   deleteLikes(modalList, festivalLikes);
-  localStorage.clear();
 };
 function startSession(modalList, festivalLikes) {
   if (localStorage.length > 0) {
