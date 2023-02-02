@@ -6,7 +6,7 @@ export const selectedFests = () => {
     const festivalLikes = document.querySelectorAll('.festival-like');
     const modalList = document.querySelector('.favorite-list');
 
-    //localStorage.clear();
+    localStorage.clear();
 
     startSession(modalList, festivalLikes);
     likeChoise(modalList, festivals, festivalLikes);
