@@ -309,13 +309,13 @@ function closeModal(modal, closeTrigger, background) {
     if (e.target.classList.contains('dark-bg')) {
       shutter(modal, background);
     }
-    history.pushState('', '', '/FUA');
+    history.pushState('', '', '/FUA/');
     withScrollbar();
   });
   closeTrigger.addEventListener('click', e => {
     e.preventDefault();
     shutter(modal, background);
-    history.pushState('', '', '/FUA');
+    history.pushState('', '', '/FUA/');
     withScrollbar();
   });
 }
