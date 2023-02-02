@@ -3,7 +3,7 @@ import { openModal, closeModal, modalInfo, withoutScrollbar, withScrollbar } fro
 export const modal = () => {
     
 
-    modalManage('.underpage', '.festivals', '.underpage-close', '.dark-bg');
+    modalManage('.fest-modal', '.festivals', '.underpage-close', '.dark-bg');
 
     modalLikeManage('.favorite-modal', '.favorite', '.favorite-close', '.dark-bg');
 
@@ -43,11 +43,11 @@ function openLikeModal(modal, trigger, background) {
 
 function modalOpener(modal, openTrigger, background) {
     openTrigger.addEventListener('click', (e) => {
-        let target = e.target
+        let target = e.target;
 
         if (fillingInfo(target)) {
             return;
-        } else if( !(e.target.classList.contains('festivals')) ) {
+        } else if(!(e.target.classList.contains('festivals'))) {
             let beforeWidth = document.documentElement.clientWidth;
 
             openModal(modal, background);

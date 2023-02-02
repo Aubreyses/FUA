@@ -137,7 +137,7 @@ function deleteNoLikesFest(festSequenceNum) {
 
 function modalOpener() {
     const infoItems = document.querySelectorAll('.item-info');
-    const modal = document.querySelector('.underpage');
+    const modal = document.querySelector('.fest-modal');
     const background = document.querySelector('.dark-bg');
     const closer = document.querySelector('.underpage-close');
     const favoriteModal = document.querySelector('.favorite-modal');
@@ -158,3 +158,5 @@ function modalOpener() {
         })
     }
 }
+
+

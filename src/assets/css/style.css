@@ -475,31 +475,33 @@ main {
   display: none;
 }
 
-.uknown {
-  background-color: #ececec;
-  border: 1px solid #000;
-  justify-content: space-around;
-  align-items: center;
+.proposition {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
 }
-.uknown-suptitle {
+.proposition-title {
   font-size: 32px;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #bcbcbc;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #222;
+  border-radius: 15px;
+  font-weight: 800;
+  cursor: default;
 }
-.uknown-add {
-  background: url(../img/interests-icon/add.png) center no-repeat;
-  background-size: 100%;
-  width: 80px;
-  height: 80px;
-}
-.uknown-title {
-  font-size: 48px;
-  font-weight: 900;
+.proposition-link {
   text-transform: uppercase;
-  color: #bcbcbc;
-  text-align: center;
+  text-decoration: underline;
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+.proposition-link:hover {
+  opacity: 0.7;
 }
 
 footer {
@@ -547,7 +549,6 @@ footer {
   border-radius: 15px;
   width: 600px;
   height: 600px;
-  display: none;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -596,8 +597,65 @@ footer {
   opacity: 0.8;
 }
 
-.underpage.active {
+.fest-modal {
+  display: none;
+}
+
+.fest-modal.active {
   display: flex;
+}
+
+.form-modal {
+  display: none;
+  justify-content: flex-start;
+}
+
+.form-modal.active {
+  display: flex;
+}
+
+.form-header {
+  text-transform: uppercase;
+  color: #222;
+  font-weight: 800;
+  font-size: 42px;
+  padding-top: 0px;
+  margin-bottom: 30px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.form-input {
+  width: 100%;
+  height: 70px;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  border: #222 2px solid;
+  border-radius: 15px;
+  text-transform: uppercase;
+  color: #222;
+  font-size: 26px;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.form-input::placeholder {
+  text-transform: uppercase;
+  color: #222;
+  font-size: 26px;
+  font-weight: 700;
+  opacity: 0.7;
+  margin: auto;
+  padding: 5px;
+}
+
+.form-buttons {
+  margin: 10px 0;
 }
 
 .dark-bg {
@@ -712,16 +770,6 @@ footer {
   .festival-title {
     font-size: 32px;
   }
-  .uknown-suptitle {
-    font-size: 30px;
-  }
-  .uknown-add {
-    width: 70px;
-    height: 70px;
-  }
-  .uknown-title {
-    font-size: 42px;
-  }
 }
 @media (max-width: 880px) {
   .link {
@@ -742,16 +790,6 @@ footer {
   }
   .bulhakovfest {
     background-size: 142%;
-  }
-  .uknown-suptitle {
-    font-size: 28px;
-  }
-  .uknown-add {
-    width: 60px;
-    height: 60px;
-  }
-  .uknown-title {
-    font-size: 38px;
   }
 }
 @media (max-width: 770px) {
@@ -800,16 +838,6 @@ footer {
   .festival-title {
     font-size: 36px;
   }
-  .uknown-suptitle {
-    font-size: 32px;
-  }
-  .uknown-add {
-    width: 70px;
-    height: 70px;
-  }
-  .uknown-title {
-    font-size: 42px;
-  }
   .underpage {
     width: 520px;
     height: 520px;
@@ -828,6 +856,9 @@ footer {
   }
   .underpage-button p {
     font-size: 20px;
+  }
+  .proposition-title {
+    font-size: 26px;
   }
   footer {
     padding: 60px 35px;
@@ -918,6 +949,9 @@ footer {
   .underpage-button p {
     font-size: 18px;
   }
+  .proposition-title {
+    font-size: 22px;
+  }
   footer {
     padding: 60px 15px;
   }
@@ -956,16 +990,6 @@ footer {
     width: 34px;
     height: 34px;
   }
-  .uknown-suptitle {
-    font-size: 30px;
-  }
-  .uknown-add {
-    width: 60px;
-    height: 60px;
-  }
-  .uknown-title {
-    font-size: 36px;
-  }
   .underpage {
     width: 350px;
     padding: 15px;
@@ -977,6 +1001,9 @@ footer {
   }
   .underpage-button p {
     font-size: 16px;
+  }
+  .proposition-title {
+    font-size: 18px;
   }
   .footer-text {
     font-size: 18px;
@@ -1038,16 +1065,6 @@ footer {
   .festival-like {
     width: 28px;
     height: 28px;
-  }
-  .uknown-suptitle {
-    font-size: 26px;
-  }
-  .uknown-add {
-    width: 45px;
-    height: 45px;
-  }
-  .uknown-title {
-    font-size: 32px;
   }
   .underpage {
     width: 290px;

@@ -99,6 +99,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _module_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./module/modal */ "./src/js/module/modal.js");
 /* harmony import */ var _module_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./module/scroll */ "./src/js/module/scroll.js");
 /* harmony import */ var _module_selected_fests__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./module/selected-fests */ "./src/js/module/selected-fests.js");
+/* harmony import */ var _module_modal_via_url__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./module/modal-via-url */ "./src/js/module/modal-via-url.js");
+/* harmony import */ var _module_form_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./module/form-modal */ "./src/js/module/form-modal.js");
+
+
 
 
 
@@ -107,6 +111,8 @@ Object(_module_modal__WEBPACK_IMPORTED_MODULE_1__["modal"])();
 Object(_module_sort__WEBPACK_IMPORTED_MODULE_0__["sort"])();
 Object(_module_selected_fests__WEBPACK_IMPORTED_MODULE_3__["selectedFests"])();
 Object(_module_scroll__WEBPACK_IMPORTED_MODULE_2__["scroll"])();
+Object(_module_modal_via_url__WEBPACK_IMPORTED_MODULE_4__["openModalViaURL"])();
+Object(_module_form_modal__WEBPACK_IMPORTED_MODULE_5__["formModal"])();
 
 /***/ }),
 
@@ -121,64 +127,126 @@ Object(_module_scroll__WEBPACK_IMPORTED_MODULE_2__["scroll"])();
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eventsDatabase", function() { return eventsDatabase; });
 const eventsDatabase = () => {
-  const eventsStorage = [{
-    name: 'Atlas Weekend',
-    text: `Atlas (до 2022 року – Atlas Weekend) — один з
+  const eventsStorage = {
+    '#atlas': {
+      name: 'Atlas Weekend',
+      date: '17.06.2023',
+      place: 'Київ',
+      text: `Atlas (до 2022 року – Atlas Weekend) — один з
             найбільших музичних фестивалів України. Проходить щорічно у Києві в першій половині
             липня в Національному експоцентрі України (ВДНГ). Заснований у 2015 році концертною
             агенцією PMK Event Agency, яка є власником київського нічного клубу Atlas, від якого
             фестиваль і отримав назву. Раніше називався Atlas Weekend, 1 лютого 2022 року
             організатори повідомили про зміну назви на фестиваль Atlas.`,
-    img: 'assets/img/modal/atlas.png',
-    link: 'https://atlasfestival.com/',
-    url: '/atlas'
-  }, {
-    name: 'Bandershtat',
-    text: `«Бандерштат» — всеукраїнський «фестиваль українського духу»,
+      img: 'assets/img/modal/atlas.png',
+      link: 'https://atlasfestival.com/',
+      url: '#atlas'
+    },
+    '#bandershtat': {
+      name: 'Bandershtat',
+      date: '26.02.2023',
+      place: 'Тернопіль',
+      text: `«Бандерштат» — всеукраїнський «фестиваль українського духу»,
             що проводиться щоліта на Волині, у місті Луцьку та околицях. Він є артвізитівкою цього краю.
             Вперше проведений 2007 року й відтоді став щорічним.`,
-    img: 'assets/img/modal/bandershtat.png',
-    link: 'http://bandershtat.org.ua/',
-    url: '/bandershtat'
-  }, {
-    name: 'Woodstock',
-    text: `«Вудсток» — один із наймасштабніших і найвизначніших
+      img: 'assets/img/modal/bandershtat.png',
+      link: 'http://bandershtat.org.ua/',
+      url: '#bandershtat'
+    },
+    '#woodstock': {
+      name: 'Woodstock',
+      date: '12.09.2023',
+      place: 'Рівне',
+      text: `«Вудсток» — один із наймасштабніших і найвизначніших
             в історії рок-фестивалів, символ вільного і мирного співжиття, а також взаємної допомоги 
             величезної кількості споріднених ідеєю людей. У 1995 році для волонтерів польської акції
             «Великий Оркестр Святкової Допомоги» (фундація «WOŚP») було організовано перший польський
             фестиваль під назвою «Зупинка Woodstock» («Przystanek Woodstock»).`,
-    img: 'assets/img/modal/woodstock.jpg',
-    link: 'https://www.facebook.com/woodstock.in.ua/',
-    url: '/woodstock'
-  }, {
-    name: 'BulhakovFest',
-    text: `«БулгаковFest» — щорічний фестиваль київської міської культури,
+      img: 'assets/img/modal/woodstock.jpg',
+      link: 'https://www.facebook.com/woodstock.in.ua/',
+      url: '#woodstock'
+    },
+    '#bulhakovfest': {
+      name: 'BulhakovFest',
+      date: '12.09.2022',
+      place: 'Київ',
+      text: `«БулгаковFest» — щорічний фестиваль київської міської культури,
             ініціатором та спонсором якого є Фонд «Культурні Новації» відомого мецената та букініста Влада Трубіцина.
             Метою заходу є збереження та популяризація історичних місць та славетних київських імен, підтримка міської
             культури, запровадження живих та інтерактивних форм вшанування відомих історичних особистостей міста Києва.`,
-    img: 'assets/img/modal/bulgakovfest.jpg',
-    link: 'https://www.facebook.com/Bulgakovfestkyiv/',
-    url: '/balhakovfest'
-  }, {
-    name: 'Art Jazz',
-    text: `Міжнародний джазовий фестиваль «ART JAZZ» по праву вважається одним з наймасштабніших культурних заходів Волині.
+      img: 'assets/img/modal/bulgakovfest.jpg',
+      link: 'https://www.facebook.com/Bulgakovfestkyiv/',
+      url: '#bulhakovfest'
+    },
+    '#artjazz': {
+      name: 'Art Jazz',
+      date: '24.06.2022',
+      place: 'Тернопіль',
+      text: `Міжнародний джазовий фестиваль «ART JAZZ» по праву вважається одним з наймасштабніших культурних заходів Волині.
             Почавши свою історію у 2007 році, цей мистецький захід став її своєрідною візитною карткою. Фестиваль об’єднує не лише
             різні жанри мистецтва в темі джазової музики, але й міста. Луцьк і Рівне на деякий час стають центром культурного життя
             та після літа починають фестивальний рух в України.`,
-    img: 'assets/img/modal/art-jazz.jpg',
-    link: 'http://artjazz.info/',
-    url: '/artjazz'
-  }, {
-    name: 'Docudays UA',
-    text: `Найбільший в Україні Міжнародний фестиваль документального кіно про права людини, який відбувається щороку впродовж
+      img: 'assets/img/modal/art-jazz.jpg',
+      link: 'http://artjazz.info/',
+      url: '#artjazz'
+    },
+    '#docudays': {
+      name: 'Docudays UA',
+      date: '01-07.02.2022',
+      place: 'Київ',
+      text: `Найбільший в Україні Міжнародний фестиваль документального кіно про права людини, який відбувається щороку впродовж
             останнього тижня березня у Києві. Після завершення фестивальної програми з жовтня місяця і до кінця року в регіонах
             України традиційно відбуваються покази найкращих фільмів у рамках Мандрівного фестивалю.`,
-    img: 'assets/img/modal/docudays.jpg',
-    link: 'https://docudays.ua/',
-    url: '/docudays'
-  }];
+      img: 'assets/img/modal/docudays.jpg',
+      link: 'https://docudays.ua/',
+      url: '#docudays'
+    }
+  };
   return eventsStorage;
 };
+
+/***/ }),
+
+/***/ "./src/js/module/form-modal.js":
+/*!*************************************!*\
+  !*** ./src/js/module/form-modal.js ***!
+  \*************************************/
+/*! exports provided: formModal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formModal", function() { return formModal; });
+/* harmony import */ var _function__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./function */ "./src/js/module/function.js");
+
+const formModal = () => {
+  const modal = document.querySelector('.form-modal');
+  const background = document.querySelector('.dark-bg');
+  const trigger = document.querySelector('.proposition-link');
+  const closeButton = document.querySelector('.form-close');
+  formOpener(trigger, modal, background);
+  formCloser(background, closeButton, modal);
+};
+function formOpener(trigger, modal, background) {
+  trigger.addEventListener('click', e => {
+    const beforeWidth = document.documentElement.clientWidth;
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["openModal"])(modal, background);
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["withoutScrollbar"])(beforeWidth);
+  });
+}
+function formCloser(background, closeButton, modal) {
+  background.addEventListener('click', e => {
+    if (e.target.classList.contains('dark-bg')) {
+      Object(_function__WEBPACK_IMPORTED_MODULE_0__["shutter"])(modal, background);
+      Object(_function__WEBPACK_IMPORTED_MODULE_0__["withScrollbar"])();
+    }
+  });
+  closeButton.addEventListener('click', e => {
+    e.preventDefault();
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["shutter"])(modal, background);
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["withScrollbar"])();
+  });
+}
 
 /***/ }),
 
@@ -186,13 +254,14 @@ const eventsDatabase = () => {
 /*!***********************************!*\
   !*** ./src/js/module/function.js ***!
   \***********************************/
-/*! exports provided: openModal, closeModal, modalInfo, withoutScrollbar, withScrollbar */
+/*! exports provided: openModal, closeModal, shutter, modalInfo, withoutScrollbar, withScrollbar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shutter", function() { return shutter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modalInfo", function() { return modalInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withoutScrollbar", function() { return withoutScrollbar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withScrollbar", function() { return withScrollbar; });
@@ -209,10 +278,13 @@ function closeModal(modal, closeTrigger, background) {
     if (e.target.classList.contains('dark-bg')) {
       shutter(modal, background);
     }
+    history.pushState('', '', '/');
     withScrollbar();
   });
   closeTrigger.addEventListener('click', e => {
+    e.preventDefault();
     shutter(modal, background);
+    history.pushState('', '', '/');
     withScrollbar();
   });
 }
@@ -229,7 +301,10 @@ function modalInfo(modalInfoNum) {
   modalText.innerHTML = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].text;
   modalImg.src = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].img;
   modalLink.href = Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].link;
-  history.pushState(null, null, Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].url);
+  const url = new URL(location.href);
+  url.searchParams.set('n', Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].url);
+  url.searchParams.set('d', Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].date);
+  history.pushState('', '', url.search);
 }
 function withoutScrollbar(beforeWidth) {
   const page = document.querySelector('.page');
@@ -242,6 +317,36 @@ function withScrollbar() {
   page.style.paddingRight = '';
 }
 ;
+
+/***/ }),
+
+/***/ "./src/js/module/modal-via-url.js":
+/*!****************************************!*\
+  !*** ./src/js/module/modal-via-url.js ***!
+  \****************************************/
+/*! exports provided: openModalViaURL */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModalViaURL", function() { return openModalViaURL; });
+/* harmony import */ var _function__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./function */ "./src/js/module/function.js");
+
+const openModalViaURL = () => {
+  const modal = document.querySelector('.fest-modal');
+  const background = document.querySelector('.dark-bg');
+  const url = new URL(window.location);
+  const decodeURL = decodeURIComponent(url.search).match(/#\w+/);
+  if (decodeURL !== null) {
+    openModal(modal, background, decodeURL);
+  }
+};
+function openModal(modal, background, decodeURL) {
+  modal.classList.add('active');
+  background.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(decodeURL);
+}
 
 /***/ }),
 
@@ -258,7 +363,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _function__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./function */ "./src/js/module/function.js");
 
 const modal = () => {
-  modalManage('.underpage', '.festivals', '.underpage-close', '.dark-bg');
+  modalManage('.fest-modal', '.festivals', '.underpage-close', '.dark-bg');
   modalLikeManage('.favorite-modal', '.favorite', '.favorite-close', '.dark-bg');
 };
 function modalManage(modalClass, triggerClass, closerClass, backgroundClass) {
@@ -459,7 +564,7 @@ function deleteNoLikesFest(festSequenceNum) {
 }
 function modalOpener() {
   const infoItems = document.querySelectorAll('.item-info');
-  const modal = document.querySelector('.underpage');
+  const modal = document.querySelector('.fest-modal');
   const background = document.querySelector('.dark-bg');
   const closer = document.querySelector('.underpage-close');
   const favoriteModal = document.querySelector('.favorite-modal');

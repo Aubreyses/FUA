@@ -1,6 +1,6 @@
 import { eventsDatabase } from "./events-database";
 
-export {openModal, closeModal, modalInfo, withoutScrollbar, withScrollbar};
+export {openModal, closeModal, shutter, modalInfo, withoutScrollbar, withScrollbar};
 
 function openModal(modal, background) {
     modal.classList.add('active');
@@ -14,12 +14,17 @@ function closeModal(modal, closeTrigger, background) {
             shutter(modal, background);
         }
 
+        history.pushState('', '', '/');
+
         withScrollbar();
     });
 
 
     closeTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
         shutter(modal, background);
+
+        history.pushState('', '', '/');
 
         withScrollbar();
     })
@@ -39,7 +44,13 @@ function modalInfo(modalInfoNum) {
     modalText.innerHTML = eventsDatabase()[modalInfoNum].text;
     modalImg.src = eventsDatabase()[modalInfoNum].img;
     modalLink.href = eventsDatabase()[modalInfoNum].link;
-    history.pushState(null, null, eventsDatabase()[modalInfoNum].url)
+
+    const url = new URL(location.href);
+
+    url.searchParams.set('n', eventsDatabase()[modalInfoNum].url);
+    url.searchParams.set('d', eventsDatabase()[modalInfoNum].date);
+
+    history.pushState('', '', url.search);
 }
 
 function withoutScrollbar(beforeWidth) {
