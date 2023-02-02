@@ -9,6 +9,8 @@ export const selectedFests = () => {
     startSession(modalList, festivalLikes);
     likeChoise(modalList, festivals, festivalLikes);
     deleteLikes(modalList, festivalLikes);
+
+    localStorage.clear();
 }
 
 function startSession(modalList, festivalLikes) {
