@@ -335,7 +335,7 @@ function modalInfo(modalInfoNum) {
   const url = new URL(location.href);
   url.searchParams.set('n', Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].url);
   url.searchParams.set('d', Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].date);
-  history.pushState('', '', 'FUA/' + Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].url + '-' + Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].date);
+  history.pushState('', '', Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].url + '-' + Object(_events_database__WEBPACK_IMPORTED_MODULE_0__["eventsDatabase"])()[modalInfoNum].date);
 }
 function withoutScrollbar(beforeWidth) {
   const page = document.querySelector('.page');
