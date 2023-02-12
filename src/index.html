@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,300;
-    0,500;0,700;0,900;1,300;1,500;1,700;1,900&family=Roboto:ital,wght@0,300;0,500;0,700;
-    0,900;1,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <title>Festival in Ukraine</title>
 </head>
@@ -88,8 +85,8 @@
                             </section>
 
                             <section class="choise-input">
-                                <input type="checkbox" checked="true" class="checkbox" name="artist-fast">
-                                <label for="artist-fast" class="checkbox-text">Мистецтво</label>
+                                <input type="checkbox" checked="true" class="checkbox" name="art-fast">
+                                <label for="art-fast" class="checkbox-text">Мистецтво</label>
                             </section>
 
                             <section class="choise-input">
@@ -98,8 +95,8 @@
                             </section>
 
                             <section class="choise-input">
-                                <input type="checkbox" checked="true" class="checkbox" name="eat-fast">
-                                <label for="eat-fast" class="checkbox-text">Їжа</label>
+                                <input type="checkbox" checked="true" class="checkbox" name="gastronomy-fast">
+                                <label for="gastronomy-fast" class="checkbox-text">Їжа</label>
                             </section>
 
                             <section class="choise-input">
@@ -116,6 +113,7 @@
                 </div>
 
                 <ul class="festivals">
+                    <h1 class="none-fests">Фестів поки немає...</h1>
                     <li class="festival #atlas atlas musical-fest">
                         <div class="festival-info">
                             <div class="festival-date">24/06</div>
@@ -183,38 +181,38 @@
                         <div class="festival-icon films"></div>
                         <div class="festival-like #docudays no-like"></div>
                     </li>
-                    <li class="festival #bulhakovfest bulhakovfest book-fest">
+                    <li class="festival #serednyovichnyiHotyn serednyovichnyiHotyn history-fast">
                         <div class="festival-info">
-                            <div class="festival-date">12/09</div>
+                            <div class="festival-date">10-14/05</div>
+                            <div class="festival-place">Хотин</div>
+                        </div>
+
+                        <div class="festival-title">Середньовічний Хотин</div>
+
+                        <div class="festival-icon historical"></div>
+                        <div class="festival-like #serednyovichnyiHotyn no-like"></div>
+                    </li>
+                    <li class="festival #kyivArtWeek kyivArtWeek art-fast">
+                        <div class="festival-info">
+                            <div class="festival-date">20-26/05</div>
                             <div class="festival-place">Київ</div>
                         </div>
 
-                        <div class="festival-title">BulgakovFest</div>
+                        <div class="festival-title">Kyiv Art Week</div>
 
-                        <div class="festival-icon book"></div>
-                        <div class="festival-like #bulhakovfest no-like"></div>
+                        <div class="festival-icon art"></div>
+                        <div class="festival-like #kyivArtWeek no-like"></div>
                     </li>
-                    <li class="festival #woodstock woodstock musical-fest">
+                    <li class="festival #cheeseAndWine cheeseAndWine gastronomy-fast">
                         <div class="festival-info">
-                            <div class="festival-date">03/05</div>
-                            <div class="festival-place">Рівне</div>
+                            <div class="festival-date">21-23/10</div>
+                            <div class="festival-place">Львів</div>
                         </div>
 
-                        <div class="festival-title">Woodstock</div>
+                        <div class="festival-title">Cheese & Wine</div>
 
-                        <div class="festival-icon musical"></div>
-                        <div class="festival-like #woodstock no-like"></div>
-                    </li>
-                    <li class="festival #atlas atlas musical-fest">
-                        <div class="festival-info">
-                            <div class="festival-date">24/06</div>
-                            <div class="festival-place">Київ</div>
-                        </div>
-
-                        <div class="festival-title">Atlas Weekend</div>
-
-                        <div class="festival-icon musical"></div>
-                        <div class="festival-like #atlas no-like"></div>
+                        <div class="festival-icon gastronomy"></div>
+                        <div class="festival-like #cheeseAndWine no-like"></div>
                     </li>
                 </ul>
             </main>
@@ -254,11 +252,15 @@
                 <input class="form-input form-text" placeholder="Назва фестивалю" type="text" maxlength="30">
                 <input class="form-input form-text" placeholder="Місце проведення" type="text" maxlength="20">
                 <input class="form-input form-date" placeholder="Дата проведення" type="text">
-                <input class="form-input form-link" placeholder="Посилання на фест" type='text'>
+                <input class="form-input form-link" placeholder="Посилання на фест" type='text' maxlength="50">
 
                 <div class="underpage-buttons form-buttons">
-                    <button class="underpage-button form-massage" href="#">
+                    <button class="underpage-button sending-button" name="submit" type="submit">
                         <p>відправити</p>
+
+                        <div class="sending-loader">
+                            <div class="sending-loader_inner"></div>
+                        </div>
                     </button>
                     <button class="underpage-button form-close">
                         <p>закрити</p>

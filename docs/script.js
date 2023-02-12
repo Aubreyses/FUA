@@ -148,7 +148,7 @@ const eventsDatabase = () => {
             організатори повідомили про зміну назви на фестиваль Atlas.`,
       img: 'assets/img/modal/atlas.png',
       link: 'https://atlasfestival.com/',
-      url: 'atlas'
+      url: '#atlas'
     },
     '#bandershtat': {
       name: 'Bandershtat',
@@ -176,7 +176,7 @@ const eventsDatabase = () => {
     },
     '#bulhakovfest': {
       name: 'BulhakovFest',
-      date: '12-09-2022',
+      date: '12-09-2023',
       place: 'Київ',
       text: `«БулгаковFest» — щорічний фестиваль київської міської культури,
             ініціатором та спонсором якого є Фонд «Культурні Новації» відомого мецената та букініста Влада Трубіцина.
@@ -188,7 +188,7 @@ const eventsDatabase = () => {
     },
     '#artjazz': {
       name: 'Art Jazz',
-      date: '24-06-2022',
+      date: '24-06-2023',
       place: 'Тернопіль',
       text: `Міжнародний джазовий фестиваль «ART JAZZ» по праву вважається одним з наймасштабніших культурних заходів Волині.
             Почавши свою історію у 2007 році, цей мистецький захід став її своєрідною візитною карткою. Фестиваль об’єднує не лише
@@ -200,7 +200,7 @@ const eventsDatabase = () => {
     },
     '#docudays': {
       name: 'Docudays UA',
-      date: '01-07-02-2022',
+      date: '01-07-02-2023',
       place: 'Київ',
       text: `Найбільший в Україні Міжнародний фестиваль документального кіно про права людини, який відбувається щороку впродовж
             останнього тижня березня у Києві. Після завершення фестивальної програми з жовтня місяця і до кінця року в регіонах
@@ -208,6 +208,41 @@ const eventsDatabase = () => {
       img: 'assets/img/modal/docudays.jpg',
       link: 'https://docudays.ua/',
       url: '#docudays'
+    },
+    '#serednyovichnyiHotyn': {
+      name: 'Середньовічний Хотин',
+      date: '10-14-05-2023',
+      place: 'Хотин',
+      text: `Протягом чотирьох днів Хотинська фортеця перевтілюється в середньовічне місто. В основному на спеціально
+            підготовленій території просто неба проходять лицарські поєдинки. Тут дійсно є безліч речей, на які хочеться дивитися
+            постійно. Найбільше гостей вражає джостінг. Він являє собою прийом під час поєдинку, при якому два вершники наносять
+            по щитах один одного удари списами, зближуючись при цьому в галопі.`,
+      img: 'assets/img/modal/serednyovichnyi_hotyn.jpg',
+      link: 'https://www.facebook.com/hotinfest/',
+      url: '#serednyovichnyiHotyn'
+    },
+    '#kyivArtWeek': {
+      name: 'Kyiv Art Week',
+      date: '20-26-05-2023',
+      place: 'Київ',
+      text: `Головна мета події – розвиток художньої інфраструктури у Східній Європі. Презентації різних галерей,
+            що представляють митців на фестивалі, дуже цікаві та інтерактивні. У фестивалі беруть участь відомі київські галереї,
+            такі як: Voloshyn Gallery, The Naked Room, Nebo Art Gallery, M17, Abramovich Art, Karas Gallery та багато інших.`,
+      img: 'assets/img/modal/kyivArtWeek.jpg',
+      link: 'https://kyivartweek.com/',
+      url: '#kyivArtWeek'
+    },
+    '#cheeseAndWine': {
+      name: 'Cheese & Wine',
+      date: '21-23-10-2023',
+      place: 'Львів',
+      text: `Здавалося б, що поєднує львів’ян із сиром та вином? Однак сьогодні мало хто знає, що чотири століття тому
+            клімат у Львові був настільки теплим, що виноградники на південних схилах Високого Замку, Личакова, а потім — на
+            пагорбах Кайзервальду, аж до Винників, давали львів'янам щорічно більше сотні бочок вина. Крім цього, львів'яни
+            насолоджувалися вишуканим італійським, критським, іспанським та угорським вином, так як Львів був великим торговим центром.`,
+      img: 'assets/img/modal/cheese_and_wine.jpg',
+      link: 'https://www.facebook.com/CheeseWineFestLviv/',
+      url: '#cheeseAndWine'
     }
   };
   return eventsStorage;
@@ -232,10 +267,19 @@ const formModal = () => {
   const background = document.querySelector('.dark-bg');
   const trigger = document.querySelector('.proposition-link');
   const closeButton = document.querySelector('.form-close');
+  const form = document.querySelector('.form');
+  const formButtons = document.querySelector('.form-buttons');
+  const inputs = document.querySelectorAll('.form-input');
+  let link = 'https://jsonplaceholder.typicode.com/posts';
   formOpener(trigger, modal, background);
-  formCloser(background, closeButton, modal);
+  formCloser(background, closeButton, modal, inputs);
   formLetterLimiter();
   checkNumKey();
+  for (let input of inputs) {
+    inputsFocusing(input);
+    inputsBlur(input);
+  }
+  onSubmit(inputs, form, formButtons, link);
 };
 function formOpener(trigger, modal, background) {
   trigger.addEventListener('click', e => {
@@ -244,24 +288,29 @@ function formOpener(trigger, modal, background) {
     Object(_function__WEBPACK_IMPORTED_MODULE_0__["withoutScrollbar"])(beforeWidth);
   });
 }
-function formCloser(background, closeButton, modal) {
+function formCloser(background, closeButton, modal, inputs) {
   background.addEventListener('click', e => {
     if (e.target.classList.contains('dark-bg')) {
       Object(_function__WEBPACK_IMPORTED_MODULE_0__["shutter"])(modal, background);
       Object(_function__WEBPACK_IMPORTED_MODULE_0__["withScrollbar"])();
+      for (let input of inputs) {
+        removeInputsClass(input);
+      }
     }
   });
   closeButton.addEventListener('click', e => {
     e.preventDefault();
     Object(_function__WEBPACK_IMPORTED_MODULE_0__["shutter"])(modal, background);
     Object(_function__WEBPACK_IMPORTED_MODULE_0__["withScrollbar"])();
+    for (let input of inputs) {
+      removeInputsClass(input);
+    }
   });
 }
 function formLetterLimiter() {
   const letterForms = document.querySelectorAll('.form-text');
   for (let form of letterForms) {
     form.addEventListener('input', e => {
-      console.log(form.value.length);
       if (form.value.length >= 30) {
         return false;
       }
@@ -271,12 +320,111 @@ function formLetterLimiter() {
 function checkNumKey() {
   const numForm = document.querySelector('.form-date');
   numForm.addEventListener('keydown', e => {
-    if (e.keyCode == '8' || e.key >= '0' && e.key <= '9') {
+    if (e.keyCode == '8' || e.key == '-' || e.key == '.' || e.key == ',' || e.key == '/' || e.key == ' ' || e.key >= '0' && e.key <= '9') {
       return;
     }
     ;
     e.preventDefault();
   });
+}
+function inputsFocusing(input) {
+  input.addEventListener('focus', e => {
+    if (input.classList.contains('success')) {
+      input.classList.remove('success');
+    } else if (input.classList.contains('error')) {
+      input.classList.remove('error');
+    }
+  });
+}
+function removeInputsClass(input) {
+  if (input.classList.contains('error')) {
+    input.classList.remove('error');
+  }
+}
+function inputsBlur(input) {
+  input.addEventListener('blur', e => {
+    input.classList.remove('active');
+    if (input.value == false) {
+      return;
+    } else {
+      input.classList.add('success');
+    }
+  });
+}
+function onSubmit(inputs, form, formButtons, link) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let emptyNum = 0;
+    for (let input of inputs) {
+      if (input.value == false) {
+        input.classList.add('error');
+        emptyNum++;
+      }
+    }
+    if (emptyNum !== 0) {
+      formButtons.insertAdjacentHTML('beforeend', '<p class="sending-info" style="color:#b50404">Заповніть всі поля, будь ласка</p>');
+      setTimeout(() => {
+        document.querySelector('.sending-info').remove();
+      }, 5000);
+      return;
+    }
+    const {
+      currentTarget
+    } = e;
+    let action = link;
+    sendForm(currentTarget, action, form).then(response => onSucces(response, currentTarget, form)).catch(reject => onError(reject, form));
+  });
+}
+function sendForm(currentForm, action, form) {
+  if (document.querySelector('.sending-info')) {
+    document.querySelector('.sending-info').remove();
+  }
+  document.querySelector('.sending-loader').style.display = 'block';
+  return fetch(action, setOptions(currentForm, form));
+}
+;
+function setOptions(currentForm) {
+  return {
+    method: 'post',
+    body: collectData(currentForm)
+  };
+}
+;
+function collectData(currentForm) {
+  const data = new FormData(currentForm);
+  return data;
+}
+;
+function onSucces(response, form) {
+  if (response.ok == false) {
+    throw 'Error';
+  } else {
+    console.log(response.json());
+    showMassage(form);
+  }
+}
+function showMassage(form) {
+  setTimeout(() => {
+    document.querySelector('.sending-loader').style.display = 'none';
+    document.querySelector('.form-buttons').insertAdjacentHTML('beforeend', '<p class="sending-info" style="color:#008037">Дякуємо за вашу пропозицію :)</p>');
+  }, 1000);
+  setTimeout(() => {
+    if (document.querySelector('.sending-info')) {
+      document.querySelector('.sending-info').remove();
+    }
+  }, 10000);
+}
+function onError(reject, form) {
+  console.log(reject.json());
+  setTimeout(() => {
+    document.querySelector('.sending-loader').style.display = 'none';
+    document.querySelector('.form-buttons').insertAdjacentHTML('beforeend', '<p class="sending-info" style="color:#b50404">Не вдалося відправити, спробуйте ще раз</p>');
+  }, 1000);
+  setTimeout(() => {
+    if (document.querySelector('.sending-info')) {
+      document.querySelector('.sending-info').remove();
+    }
+  }, 10000);
 }
 
 /***/ }),
@@ -366,7 +514,6 @@ __webpack_require__.r(__webpack_exports__);
 const openModalViaURL = () => {
   const modal = document.querySelector('.fest-modal');
   const background = document.querySelector('.dark-bg');
-  console.log(location.hash);
   const decodeURL = decodeURIComponent(location.hash).match(/#\w+/);
   if (decodeURL !== null) {
     openModal(modal, background, decodeURL);
@@ -499,7 +646,6 @@ const selectedFests = () => {
   const festivals = document.querySelector('.festivals');
   const festivalLikes = document.querySelectorAll('.festival-like');
   const modalList = document.querySelector('.favorite-list');
-  localStorage.clear();
   startSession(modalList, festivalLikes);
   likeChoise(modalList, festivals, festivalLikes);
   deleteLikes(modalList, festivalLikes);
@@ -646,12 +792,15 @@ function choiseText(checkboxTexts, festivals, checkboxs) {
         checkbox.checked = false;
       }
       festsSorted(festivals, checkboxs);
+      showNonFests(checkboxs);
     });
   }
 }
 function choiseInput(sortForm, festivals, checkboxs) {
   sortForm.addEventListener('change', e => {
+    console.log(e);
     festsSorted(festivals, checkboxs);
+    showNonFests(checkboxs);
   });
 }
 function festsSorted(festivals, checkboxs) {
@@ -677,6 +826,22 @@ function menuManage(menu, menuArrow, form, button) {
     menuArrow.classList.toggle('active');
     form.classList.toggle('active');
   });
+}
+function showNonFests(checkboxs) {
+  const nonFests = document.querySelector('.none-fests');
+  let checkedNum = 6;
+  for (let input of checkboxs) {
+    if (input.checked) {
+      checkedNum++;
+    } else if (!input.checked) {
+      checkedNum--;
+    }
+  }
+  if (checkedNum === 0) {
+    nonFests.style.display = 'block';
+  } else {
+    nonFests.style.display = 'none';
+  }
 }
 
 /***/ })

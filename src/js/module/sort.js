@@ -25,6 +25,8 @@ function choiseText(checkboxTexts, festivals, checkboxs) {
             }
 
             festsSorted(festivals, checkboxs)
+
+            showNonFests(checkboxs);
         });
         
     }
@@ -32,7 +34,10 @@ function choiseText(checkboxTexts, festivals, checkboxs) {
 
 function choiseInput(sortForm, festivals, checkboxs) {
     sortForm.addEventListener('change', (e) => {
+        console.log(e);
         festsSorted(festivals, checkboxs);
+
+        showNonFests(checkboxs);
     })
 }
 
@@ -62,4 +67,24 @@ function menuManage(menu, menuArrow, form, button) {
         menuArrow.classList.toggle('active')
         form.classList.toggle('active')
     })
+}
+
+function showNonFests(checkboxs) {
+    const nonFests = document.querySelector('.none-fests');
+
+    let checkedNum = 6;
+
+    for(let input of checkboxs) {
+        if(input.checked) {
+            checkedNum++;
+        } else if(!(input.checked)) {
+            checkedNum--;
+        }
+    }
+
+    if(checkedNum === 0) {
+        nonFests.style.display = 'block';
+    } else {
+        nonFests.style.display = 'none'; 
+    }
 }
