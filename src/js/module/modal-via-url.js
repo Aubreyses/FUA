@@ -1,4 +1,4 @@
-import { modalInfo } from "./function";
+import { modalInfo, imgLoader } from "./function";
 
 export const openModalViaURL = () => {
     const modal = document.querySelector('.fest-modal');
@@ -12,6 +12,7 @@ export const openModalViaURL = () => {
 }
 
 function openModal(modal, background, decodeURL) {
+    const image = document.querySelector('.underpage-img');
 
     modal.classList.add('active');
     background.classList.add('active');
@@ -19,4 +20,7 @@ function openModal(modal, background, decodeURL) {
 
     modalInfo(decodeURL);
 
+    image.addEventListener('load', (e) => {
+        imgLoader();
+    })
 }

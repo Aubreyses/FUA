@@ -1,14 +1,23 @@
 import { eventsDatabase } from "./events-database";
 
-export {openModal, closeModal, shutter, modalInfo, withoutScrollbar, withScrollbar};
+export {openModal, closeModal, shutter, opener, imgLoader, modalInfo, withoutScrollbar, withScrollbar};
 
 function openModal(modal, background) {
-    modal.classList.add('active');
-    background.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    const image = document.querySelector('.underpage-img');
+    opener(modal, background);
+
+    image.addEventListener('load', (e) => {
+        imgLoader();
+    })
+}
+
+function imgLoader() {
+    const loader = document.querySelector('.img-loader');
+    loader.style.display = 'none';
 }
 
 function closeModal(modal, closeTrigger, background) {
+    const loader = document.querySelector('.img-loader');
     background.addEventListener('click', (e) => {
         if(e.target.classList.contains('dark-bg')) {
             shutter(modal, background);
@@ -17,6 +26,8 @@ function closeModal(modal, closeTrigger, background) {
         history.pushState('', '', '/FUA/');
 
         withScrollbar();
+
+        loader.style.display = 'block';
     });
 
 
@@ -27,8 +38,16 @@ function closeModal(modal, closeTrigger, background) {
         history.pushState('', '', '/FUA/');
 
         withScrollbar();
+
+        loader.style.display = 'block';
     })
 };
+
+function opener(modal, background) {
+    modal.classList.add('active');
+    background.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
 function shutter(modal, background) {
     modal.classList.remove('active')

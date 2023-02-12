@@ -1,4 +1,4 @@
-import { openModal, shutter, withoutScrollbar, withScrollbar } from "./function"
+import { opener, shutter, withoutScrollbar, withScrollbar } from "./function"
 export const formModal = () => {
     const modal = document.querySelector('.form-modal');
     const background = document.querySelector('.dark-bg');
@@ -34,7 +34,7 @@ function formOpener(trigger, modal, background) {
     trigger.addEventListener('click', (e) => {
         const beforeWidth = document.documentElement.clientWidth;
 
-        openModal(modal, background);
+        opener(modal, background);
 
         withoutScrollbar(beforeWidth);
     });

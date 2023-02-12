@@ -284,7 +284,7 @@ const formModal = () => {
 function formOpener(trigger, modal, background) {
   trigger.addEventListener('click', e => {
     const beforeWidth = document.documentElement.clientWidth;
-    Object(_function__WEBPACK_IMPORTED_MODULE_0__["openModal"])(modal, background);
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["opener"])(modal, background);
     Object(_function__WEBPACK_IMPORTED_MODULE_0__["withoutScrollbar"])(beforeWidth);
   });
 }
@@ -433,7 +433,7 @@ function onError(reject, form) {
 /*!***********************************!*\
   !*** ./src/js/module/function.js ***!
   \***********************************/
-/*! exports provided: openModal, closeModal, shutter, modalInfo, withoutScrollbar, withScrollbar */
+/*! exports provided: openModal, closeModal, shutter, opener, imgLoader, modalInfo, withoutScrollbar, withScrollbar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -441,6 +441,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openModal", function() { return openModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shutter", function() { return shutter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "opener", function() { return opener; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "imgLoader", function() { return imgLoader; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modalInfo", function() { return modalInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withoutScrollbar", function() { return withoutScrollbar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withScrollbar", function() { return withScrollbar; });
@@ -448,26 +450,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function openModal(modal, background) {
-  modal.classList.add('active');
-  background.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  const image = document.querySelector('.underpage-img');
+  opener(modal, background);
+  image.addEventListener('load', e => {
+    imgLoader();
+  });
+}
+function imgLoader() {
+  const loader = document.querySelector('.img-loader');
+  loader.style.display = 'none';
 }
 function closeModal(modal, closeTrigger, background) {
+  const loader = document.querySelector('.img-loader');
   background.addEventListener('click', e => {
     if (e.target.classList.contains('dark-bg')) {
       shutter(modal, background);
     }
     history.pushState('', '', '/FUA/');
     withScrollbar();
+    loader.style.display = 'block';
   });
   closeTrigger.addEventListener('click', e => {
     e.preventDefault();
     shutter(modal, background);
     history.pushState('', '', '/FUA/');
     withScrollbar();
+    loader.style.display = 'block';
   });
 }
 ;
+function opener(modal, background) {
+  modal.classList.add('active');
+  background.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
 function shutter(modal, background) {
   modal.classList.remove('active');
   background.classList.remove('active');
@@ -520,10 +536,14 @@ const openModalViaURL = () => {
   }
 };
 function openModal(modal, background, decodeURL) {
+  const image = document.querySelector('.underpage-img');
   modal.classList.add('active');
   background.classList.add('active');
   document.body.style.overflow = 'hidden';
   Object(_function__WEBPACK_IMPORTED_MODULE_0__["modalInfo"])(decodeURL);
+  image.addEventListener('load', e => {
+    Object(_function__WEBPACK_IMPORTED_MODULE_0__["imgLoader"])();
+  });
 }
 
 /***/ }),
