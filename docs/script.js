@@ -560,7 +560,6 @@ __webpack_require__.r(__webpack_exports__);
 
 const modal = () => {
   modalManage('.fest-modal', '.festivals', '.underpage-close', '.dark-bg');
-  localStorage.clear();
   modalLikeManage('.favorite-modal', '.favorite', '.favorite-close', '.dark-bg');
 };
 function modalManage(modalClass, triggerClass, closerClass, backgroundClass) {
