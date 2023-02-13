@@ -399,7 +399,6 @@ function onSucces(response, form) {
   if (response.ok == false) {
     throw 'Error';
   } else {
-    console.log(response.json());
     showMassage(form);
   }
 }
@@ -415,7 +414,6 @@ function showMassage(form) {
   }, 10000);
 }
 function onError(reject, form) {
-  console.log(reject.json());
   setTimeout(() => {
     document.querySelector('.sending-loader').style.display = 'none';
     document.querySelector('.form-buttons').insertAdjacentHTML('beforeend', '<p class="sending-info" style="color:#b50404">Не вдалося відправити, спробуйте ще раз</p>');
@@ -562,6 +560,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const modal = () => {
   modalManage('.fest-modal', '.festivals', '.underpage-close', '.dark-bg');
+  localStorage.clear();
   modalLikeManage('.favorite-modal', '.favorite', '.favorite-close', '.dark-bg');
 };
 function modalManage(modalClass, triggerClass, closerClass, backgroundClass) {
@@ -818,7 +817,6 @@ function choiseText(checkboxTexts, festivals, checkboxs) {
 }
 function choiseInput(sortForm, festivals, checkboxs) {
   sortForm.addEventListener('change', e => {
-    console.log(e);
     festsSorted(festivals, checkboxs);
     showNonFests(checkboxs);
   });

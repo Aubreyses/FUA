@@ -181,7 +181,6 @@ function onSucces(response, form) {
     if( response.ok == false ) {
         throw 'Error'
     } else {
-        console.log(response.json());
         showMassage(form)
     }
 }
@@ -199,7 +198,6 @@ function showMassage(form) {
 }
 
 function onError(reject, form) {
-    console.log(reject.json());
     setTimeout( () => { 
         document.querySelector('.sending-loader').style.display = 'none';
         document.querySelector('.form-buttons').insertAdjacentHTML('beforeend', '<p class="sending-info" style="color:#b50404">Не вдалося відправити, спробуйте ще раз</p>') }, 1000 )

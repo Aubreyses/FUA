@@ -34,7 +34,6 @@ function choiseText(checkboxTexts, festivals, checkboxs) {
 
 function choiseInput(sortForm, festivals, checkboxs) {
     sortForm.addEventListener('change', (e) => {
-        console.log(e);
         festsSorted(festivals, checkboxs);
 
         showNonFests(checkboxs);
